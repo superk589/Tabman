@@ -91,7 +91,7 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
     }
     
     /// Background view of the bar.
-    public private(set) var backgroundView: BackgroundView = BackgroundView(forAutoLayout: ())
+    public private(set) var backgroundView = BarBackgroundView(forAutoLayout: ())
     /// The content view for the bar.
     public private(set) var contentView = UIView(forAutoLayout: ())
     /// The bottom separator view for the bar.
