@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class ClearPageIndicator: PageIndicator {
+internal class ClearPageIndicator: BarPageIndicator {
 
     //
     // MARK: Lifecycle

@@ -20,10 +20,10 @@ extension SettingsViewController {
                             TabmanBar.Style.bar.description]
         
         let indicatorStyleOptions = ["Default",
-                            PageIndicator.Style.line.description,
-                            PageIndicator.Style.dot.description,
-                            PageIndicator.Style.chevron.description,
-                            PageIndicator.Style.clear.description]
+                            BarPageIndicator.Style.line.description,
+                            BarPageIndicator.Style.dot.description,
+                            BarPageIndicator.Style.chevron.description,
+                            BarPageIndicator.Style.clear.description]
         
         let pageVCSection = SettingsSection(title: "Page View Controller")
         pageVCSection.add(item: SettingsItem(type: .toggle,
@@ -55,7 +55,7 @@ extension SettingsViewController {
                                                  value: nil, update:
             { (value) in
                 guard let description = value as? String else { return }
-                let style = PageIndicator.Style.fromDescription(description)
+                let style = BarPageIndicator.Style.fromDescription(description)
                 
                 let appearance = self.tabViewController?.bar.appearance
                 appearance?.indicator.preferredStyle = style
@@ -154,7 +154,7 @@ fileprivate extension TabmanBar.Style {
     }
 }
 
-fileprivate extension PageIndicator.Style {
+fileprivate extension BarPageIndicator.Style {
     
     var description: String {
         switch self {
@@ -172,7 +172,7 @@ fileprivate extension PageIndicator.Style {
         }
     }
     
-    static func fromDescription(_ description: String) -> PageIndicator.Style? {
+    static func fromDescription(_ description: String) -> BarPageIndicator.Style? {
         switch description {
         case "Clear":
             return .clear

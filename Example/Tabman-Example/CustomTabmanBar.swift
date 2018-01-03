@@ -15,7 +15,7 @@ class CustomTabmanBar: TabmanBar {
 
     // MARK: Lifecycle
     
-    override func defaultIndicatorStyle() -> PageIndicator.Style {
+    override func defaultIndicatorStyle() -> BarPageIndicator.Style {
         // declare indicator style here
         return .clear
     }
@@ -39,7 +39,7 @@ class CustomTabmanBar: TabmanBar {
         label.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(12.0, 0.0, 12.0, 0.0))
     }
     
-    public override func add(indicator: PageIndicator,
+    public override func add(indicator: BarPageIndicator,
                              to contentView: UIView) {
         // add indicator to bar here
     }

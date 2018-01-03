@@ -1,5 +1,5 @@
 //
-//  TabmanIndicator.swift
+//  BarPageIndicator.swift
 //  Tabman
 //
 //  Created by Merrick Sapsford on 03/03/2017.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// The lifecycle for an indicator.
-public protocol PageIndicatorLifecycle {
+public protocol BarPageIndicatorLifecycle {
     
     /// Construct the indicator
     func construct()
@@ -17,11 +17,11 @@ public protocol PageIndicatorLifecycle {
 
 internal protocol TabmanIndicatorDelegate: class {
     
-    func indicator(requiresLayoutInvalidation indicator: PageIndicator)
+    func indicator(requiresLayoutInvalidation indicator: BarPageIndicator)
 }
 
 /// Indicator that highlights the currently visible page.
-open class PageIndicator: UIView, PageIndicatorLifecycle {
+open class BarPageIndicator: UIView, BarPageIndicatorLifecycle {
 
     // MARK: Types
 
@@ -94,9 +94,9 @@ open class PageIndicator: UIView, PageIndicatorLifecycle {
     }
 }
 
-internal extension PageIndicator.Style {
+internal extension BarPageIndicator.Style {
     
-    static func fromType(_ type: PageIndicator.Type?) -> PageIndicator.Style {
+    static func fromType(_ type: BarPageIndicator.Type?) -> BarPageIndicator.Style {
         guard let type = type else {
             return .clear
         }

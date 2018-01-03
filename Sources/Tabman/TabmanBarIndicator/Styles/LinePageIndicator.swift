@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension PageIndicator {
+public extension BarPageIndicator {
     
     /// Weight of the indicator line.
     ///
@@ -22,7 +22,7 @@ public extension PageIndicator {
     }
 }
 
-internal class LinePageIndicator: PageIndicator {
+internal class LinePageIndicator: BarPageIndicator {
     
     //
     // MARK: Properties

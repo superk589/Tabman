@@ -1,5 +1,5 @@
 //
-//  PageIndicator+Styles.swift
+//  BarPageIndicator+Styles.swift
 //  Tabman
 //
 //  Created by Merrick Sapsford on 03/01/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension PageIndicator {
+public extension BarPageIndicator {
     
     /// The style of indicator to display.
     ///
@@ -22,13 +22,13 @@ public extension PageIndicator {
         case line
         case dot
         case chevron
-        case custom(type: PageIndicator.Type)
+        case custom(type: BarPageIndicator.Type)
     }
 }
 
-internal extension PageIndicator.Style {
+internal extension BarPageIndicator.Style {
     
-    var rawType: PageIndicator.Type? {
+    var rawType: BarPageIndicator.Type? {
         switch self {
         case .line:
             return LinePageIndicator.self

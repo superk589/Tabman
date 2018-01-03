@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class BlockPageIndicator: PageIndicator {
+internal class BlockPageIndicator: BarPageIndicator {
     
     //
     // MARK: Properties
@@ -30,7 +30,7 @@ internal class BlockPageIndicator: PageIndicator {
     // MARK: Lifecycle
     //
     
-    override func preferredLayerPosition() -> PageIndicator.LayerPosition {
+    override func preferredLayerPosition() -> BarPageIndicator.LayerPosition {
         return .background
     }
     

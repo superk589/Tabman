@@ -14,7 +14,7 @@ import Pageboy
 extension TabmanBar {
 
     /// Remove a scroll indicator from the bar.
-    internal func clear(indicator: PageIndicator?) {
+    internal func clear(indicator: BarPageIndicator?) {
         self.indicatorMaskView.frame = .zero // reset mask
         indicator?.removeFromSuperview()
         indicator?.removeConstraints(indicator?.constraints ?? [])
@@ -24,7 +24,7 @@ extension TabmanBar {
     ///
     /// - Parameter style: The style.
     /// - Returns: The new indicator.
-    internal func create(indicatorForStyle style: PageIndicator.Style) -> PageIndicator? {
+    internal func create(indicatorForStyle style: BarPageIndicator.Style) -> BarPageIndicator? {
         if let indicatorType = style.rawType {
             return indicatorType.init()
         }
@@ -34,7 +34,7 @@ extension TabmanBar {
     /// Update the current indicator for a preferred style.
     ///
     /// - Parameter preferredStyle: The new preferred style.
-    internal func updateIndicator(forPreferredStyle preferredStyle: PageIndicator.Style?) {
+    internal func updateIndicator(forPreferredStyle preferredStyle: BarPageIndicator.Style?) {
         guard let preferredIndicatorStyle = self.preferredIndicatorStyle else {
             
             // restore default if no preferred style

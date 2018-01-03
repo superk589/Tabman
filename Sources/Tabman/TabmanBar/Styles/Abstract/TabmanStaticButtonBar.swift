@@ -82,7 +82,7 @@ internal class TabmanStaticButtonBar: TabmanButtonBar {
     // MARK: Lifecycle
     //
     
-    override func defaultIndicatorStyle() -> PageIndicator.Style {
+    override func defaultIndicatorStyle() -> BarPageIndicator.Style {
         return .line
     }
     
@@ -94,7 +94,7 @@ internal class TabmanStaticButtonBar: TabmanButtonBar {
     // MARK: TabmanBar Lifecycle
     //
     
-    public override func add(indicator: PageIndicator, to contentView: UIView) {
+    public override func add(indicator: BarPageIndicator, to contentView: UIView) {
         
         contentView.addSubview(indicator)
         indicator.autoPinEdge(toSuperviewEdge: .bottom)

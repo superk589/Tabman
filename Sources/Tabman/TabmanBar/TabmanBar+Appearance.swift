@@ -16,11 +16,11 @@ public extension TabmanBar {
         public struct Indicator {
             /// The preferred style to use for the indicator.
             /// This is optionally conformed to by the bar.
-            public var preferredStyle: PageIndicator.Style?
+            public var preferredStyle: BarPageIndicator.Style?
             /// The color of the bar indicator.
             public var color: UIColor?
             /// The weight (thickness) of the bar indicator if using a line indicator.
-            public var lineWeight: PageIndicator.LineWeight?
+            public var lineWeight: BarPageIndicator.LineWeight?
             /// Whether the indicator transiton is progressive.
             public var isProgressive: Bool?
             /// Whether the indicator bounces at the end of page ranges.
