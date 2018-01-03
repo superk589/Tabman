@@ -253,22 +253,22 @@
 		467E91EC1FFD232A002204C4 /* BarView */ = {
 			isa = PBXGroup;
 			children = (
+				467E92171FFD232A002204C4 /* TabmanBar.swift */,
+				467E92151FFD232A002204C4 /* TabmanBar+Insets.swift */,
+				467E92161FFD232A002204C4 /* TabmanBar+Layout.swift */,
 				467E91ED1FFD232A002204C4 /* TabmanBar+Location.swift */,
-				467E91EE1FFD232A002204C4 /* Configuration */,
 				467E91F11FFD232A002204C4 /* TabmanBar+Indicator.swift */,
 				467E91F21FFD232A002204C4 /* TabmanBar+Styles.swift */,
 				467E91F31FFD232A002204C4 /* TabmanBar+Construction.swift */,
 				467E91F41FFD232A002204C4 /* TabmanBar+Item.swift */,
-				467E91F51FFD232A002204C4 /* Utilities */,
-				467E91F71FFD232A002204C4 /* Styles */,
-				467E91FF1FFD232A002204C4 /* Components */,
 				467E92021FFD232A002204C4 /* TabmanBar+Appearance.swift */,
 				467E92031FFD232A002204C4 /* TabmanBar+Protocols.swift */,
 				467E92041FFD232A002204C4 /* Behaviors */,
 				467E920A1FFD232A002204C4 /* Transitioning */,
-				467E92151FFD232A002204C4 /* TabmanBar+Insets.swift */,
-				467E92161FFD232A002204C4 /* TabmanBar+Layout.swift */,
-				467E92171FFD232A002204C4 /* TabmanBar.swift */,
+				467E91EE1FFD232A002204C4 /* Configuration */,
+				467E91F51FFD232A002204C4 /* Utilities */,
+				467E91F71FFD232A002204C4 /* Styles */,
+				467E91FF1FFD232A002204C4 /* Components */,
 			);
 			path = BarView;
 			sourceTree = "<group>";
