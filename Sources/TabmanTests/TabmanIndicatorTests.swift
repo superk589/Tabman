@@ -21,7 +21,7 @@ class TabmanIndicatorTests: XCTestCase {
 
 private class TabmanTestBarWithIndicator: TabmanTestBar {
     
-    override func defaultIndicatorStyle() -> TabmanIndicator.Style {
+    override func defaultIndicatorStyle() -> TabmanBarIndicator.Style {
         return .custom(type: TabmanTestIndicator.self)
     }
 }

@@ -57,7 +57,7 @@ class TabmanTestBar: TabmanBar {
         self.hasConstructed = true
     }
     
-    override func add(indicator: TabmanIndicator, to contentView: UIView) {
+    override func add(indicator: TabmanBarIndicator, to contentView: UIView) {
     }
     
     override func update(forPosition position: CGFloat,

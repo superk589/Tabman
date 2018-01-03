@@ -49,7 +49,7 @@ public protocol TabmanBarLifecycle: TabmanAppearanceUpdateable {
     ///
     /// - Parameter indicator: The indicator to add.
     /// - Parameter contentView: The view to construct the bar in.
-    func add(indicator: TabmanIndicator, to contentView: UIView)
+    func add(indicator: TabmanBarIndicator, to contentView: UIView)
     
     /// Update the tab bar for a positional update.
     ///

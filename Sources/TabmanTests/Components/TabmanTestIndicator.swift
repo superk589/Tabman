@@ -9,7 +9,7 @@
 import UIKit
 @testable import Tabman
 
-class TabmanTestIndicator: TabmanIndicator {
+class TabmanTestIndicator: TabmanBarIndicator {
     
     private(set) var wasConstructed: Bool = false
     

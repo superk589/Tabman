@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension TabmanIndicator {
+public extension TabmanBarIndicator {
     
     /// Weight of the indicator line.
     ///
@@ -22,7 +22,7 @@ public extension TabmanIndicator {
     }
 }
 
-internal class TabmanLineIndicator: TabmanIndicator {
+internal class TabmanLineIndicator: TabmanBarIndicator {
     
     //
     // MARK: Properties
