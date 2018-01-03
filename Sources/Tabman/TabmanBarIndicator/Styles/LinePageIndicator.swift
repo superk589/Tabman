@@ -22,7 +22,7 @@ public extension TabmanBarPageIndicator {
     }
 }
 
-internal class TabmanLineIndicator: TabmanBarPageIndicator {
+internal class LinePageIndicator: TabmanBarPageIndicator {
     
     //
     // MARK: Properties

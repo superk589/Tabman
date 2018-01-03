@@ -74,7 +74,7 @@ internal class TabmanBlockTabBar: TabmanStaticButtonBar {
     // MARK: Lifecycle
 
     override public func defaultIndicatorStyle() -> TabmanBarPageIndicator.Style {
-        return .custom(type: TabmanBlockIndicator.self)
+        return .custom(type: BlockPageIndicator.self)
     }
     
     public override func usePreferredIndicatorStyle() -> Bool {

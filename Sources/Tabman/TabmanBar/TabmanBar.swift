@@ -323,11 +323,11 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
         self.indicator?.tintColor = indicatorColor ?? defaultAppearance.indicator.color!
         
         let indicatorUsesRoundedCorners = appearance.indicator.useRoundedCorners
-        let lineIndicator = self.indicator as? TabmanLineIndicator
+        let lineIndicator = self.indicator as? LinePageIndicator
         lineIndicator?.useRoundedCorners = indicatorUsesRoundedCorners ?? defaultAppearance.indicator.useRoundedCorners!
         
         let indicatorWeight = appearance.indicator.lineWeight ?? defaultAppearance.indicator.lineWeight!
-        if let lineIndicator = self.indicator as? TabmanLineIndicator {
+        if let lineIndicator = self.indicator as? LinePageIndicator {
             lineIndicator.weight = indicatorWeight
         }
     }
@@ -356,15 +356,15 @@ internal extension TabmanBarPageIndicator.Style {
     var rawType: TabmanBarPageIndicator.Type? {
         switch self {
         case .line:
-            return TabmanLineIndicator.self
+            return LinePageIndicator.self
         case .dot:
-            return TabmanDotIndicator.self
+            return DotPageIndicator.self
         case .chevron:
-            return TabmanChevronIndicator.self
+            return ChevronPageIndicator.self
         case .custom(let type):
             return type
         case .clear:
-            return TabmanClearIndicator.self
+            return ClearPageIndicator.self
         }
     }
 }

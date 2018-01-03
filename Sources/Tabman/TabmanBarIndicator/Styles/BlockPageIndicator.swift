@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class TabmanBlockIndicator: TabmanBarPageIndicator {
+internal class BlockPageIndicator: TabmanBarPageIndicator {
     
     //
     // MARK: Properties

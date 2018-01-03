@@ -121,10 +121,10 @@ internal extension TabmanBarPageIndicator.Style {
         }
         
         switch type {
-        case is TabmanLineIndicator.Type:
+        case is LinePageIndicator.Type:
             return .line
             
-        case is TabmanDotIndicator.Type:
+        case is DotPageIndicator.Type:
             return .dot
             
         default:
