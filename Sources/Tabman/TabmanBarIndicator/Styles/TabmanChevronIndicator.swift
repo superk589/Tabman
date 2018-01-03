@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-internal class TabmanChevronIndicator: TabmanBarIndicator {
+internal class TabmanChevronIndicator: TabmanBarPageIndicator {
     
     //
     // MARK: Properties

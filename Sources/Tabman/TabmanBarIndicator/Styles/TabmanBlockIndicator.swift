@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class TabmanBlockIndicator: TabmanBarIndicator {
+internal class TabmanBlockIndicator: TabmanBarPageIndicator {
     
     //
     // MARK: Properties
@@ -30,7 +30,7 @@ internal class TabmanBlockIndicator: TabmanBarIndicator {
     // MARK: Lifecycle
     //
     
-    override func preferredLayerPosition() -> TabmanBarIndicator.LayerPosition {
+    override func preferredLayerPosition() -> TabmanBarPageIndicator.LayerPosition {
         return .background
     }
     

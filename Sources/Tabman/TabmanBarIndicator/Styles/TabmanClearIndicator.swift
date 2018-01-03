@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class TabmanClearIndicator: TabmanBarIndicator {
+internal class TabmanClearIndicator: TabmanBarPageIndicator {
 
     //
     // MARK: Lifecycle

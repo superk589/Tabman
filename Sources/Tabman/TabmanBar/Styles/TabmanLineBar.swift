@@ -21,7 +21,7 @@ internal class TabmanLineBar: TabmanBar {
     
     // MARK: Lifecycle
     
-    public override func defaultIndicatorStyle() -> TabmanBarIndicator.Style {
+    public override func defaultIndicatorStyle() -> TabmanBarPageIndicator.Style {
         return .line
     }
     
@@ -40,7 +40,7 @@ internal class TabmanLineBar: TabmanBar {
         
     }
     
-    public override func add(indicator: TabmanBarIndicator, to contentView: UIView) {
+    public override func add(indicator: TabmanBarPageIndicator, to contentView: UIView) {
         
         indicator.tintColor = self.appearance.indicator.color
         contentView.addSubview(indicator)

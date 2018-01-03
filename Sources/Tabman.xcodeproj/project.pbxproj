@@ -21,7 +21,7 @@
 		4659D9D61FC4B548006E483F /* TabmanBar+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4659D9D51FC4B548006E483F /* TabmanBar+Location.swift */; };
 		4659D9D81FC4B56E006E483F /* TabmanBar+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4659D9D71FC4B56E006E483F /* TabmanBar+Styles.swift */; };
 		4659D9DA1FC4B617006E483F /* TabmanBarBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4659D9D91FC4B617006E483F /* TabmanBarBehaviorTests.swift */; };
-		467E91AB1FFD1E19002204C4 /* TabmanBarIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E91A11FFD1E19002204C4 /* TabmanBarIndicator.swift */; };
+		467E91AB1FFD1E19002204C4 /* TabmanBarPageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E91A11FFD1E19002204C4 /* TabmanBarPageIndicator.swift */; };
 		467E91AC1FFD1E19002204C4 /* TabmanBlockIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E91A31FFD1E19002204C4 /* TabmanBlockIndicator.swift */; };
 		467E91AD1FFD1E19002204C4 /* TabmanChevronIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E91A41FFD1E19002204C4 /* TabmanChevronIndicator.swift */; };
 		467E91AE1FFD1E19002204C4 /* TabmanLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E91A51FFD1E19002204C4 /* TabmanLineIndicator.swift */; };
@@ -100,7 +100,7 @@
 		4659D9D51FC4B548006E483F /* TabmanBar+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabmanBar+Location.swift"; sourceTree = "<group>"; };
 		4659D9D71FC4B56E006E483F /* TabmanBar+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabmanBar+Styles.swift"; sourceTree = "<group>"; };
 		4659D9D91FC4B617006E483F /* TabmanBarBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabmanBarBehaviorTests.swift; sourceTree = "<group>"; };
-		467E91A11FFD1E19002204C4 /* TabmanBarIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabmanBarIndicator.swift; sourceTree = "<group>"; };
+		467E91A11FFD1E19002204C4 /* TabmanBarPageIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabmanBarPageIndicator.swift; sourceTree = "<group>"; };
 		467E91A31FFD1E19002204C4 /* TabmanBlockIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabmanBlockIndicator.swift; sourceTree = "<group>"; };
 		467E91A41FFD1E19002204C4 /* TabmanChevronIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabmanChevronIndicator.swift; sourceTree = "<group>"; };
 		467E91A51FFD1E19002204C4 /* TabmanLineIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabmanLineIndicator.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 		467E91A01FFD1E19002204C4 /* TabmanBarIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				467E91A11FFD1E19002204C4 /* TabmanBarIndicator.swift */,
+				467E91A11FFD1E19002204C4 /* TabmanBarPageIndicator.swift */,
 				467E91A21FFD1E19002204C4 /* Styles */,
 				467E91A81FFD1E19002204C4 /* Views */,
 			);
@@ -638,7 +638,7 @@
 				D616D0A31E77EFC600C7AA32 /* TabmanBarTransitionStore.swift in Sources */,
 				4659D9D41FC4B50E006E483F /* TabmanBarConfigHandler.swift in Sources */,
 				4659D9CE1FC4AD7A006E483F /* BarBehaviorActivist.swift in Sources */,
-				467E91AB1FFD1E19002204C4 /* TabmanBarIndicator.swift in Sources */,
+				467E91AB1FFD1E19002204C4 /* TabmanBarPageIndicator.swift in Sources */,
 				D616D0B91E78065500C7AA32 /* TabmanPositionalUtil.swift in Sources */,
 				D616D0B31E77FD5000C7AA32 /* TabmanTransition.swift in Sources */,
 				D616D0AD1E77FA9300C7AA32 /* TabmanScrollingBarIndicatorTransition.swift in Sources */,
