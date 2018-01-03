@@ -77,7 +77,7 @@ internal class TabmanScrollingButtonBar: TabmanButtonBar {
         self.transitionStore?.indicatorTransition(forBar: self)?.updateForCurrentPosition()
     }
     
-    public override func defaultIndicatorStyle() -> TabmanBarPageIndicator.Style {
+    public override func defaultIndicatorStyle() -> PageIndicator.Style {
         return .line
     }
     
@@ -124,7 +124,7 @@ internal class TabmanScrollingButtonBar: TabmanButtonBar {
         self.scrollView.layoutIfNeeded()
     }
     
-    public override func add(indicator: TabmanBarPageIndicator, to contentView: UIView) {
+    public override func add(indicator: PageIndicator, to contentView: UIView) {
         
         self.scrollView.contentView.addSubview(indicator)
         indicator.autoPinEdge(toSuperviewEdge: .bottom)

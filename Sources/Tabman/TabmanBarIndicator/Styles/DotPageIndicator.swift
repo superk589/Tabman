@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-internal class DotPageIndicator: TabmanBarPageIndicator {
+internal class DotPageIndicator: PageIndicator {
     
     //
     // MARK: Properties

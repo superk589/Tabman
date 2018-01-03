@@ -67,7 +67,7 @@ internal class TabmanBarTransitionStore: Any {
     ///   - bar: The bar that the indicator is part of.
     ///   - indicatorStyle: The indicator style.
     /// - Returns: The item transition.
-    func itemTransition(forBar bar: TabmanBar, indicator: TabmanBarPageIndicator) -> TabmanItemTransition? {
+    func itemTransition(forBar bar: TabmanBar, indicator: PageIndicator) -> TabmanItemTransition? {
         guard let transitionType = indicator.itemTransitionType() else {
             return nil
         }

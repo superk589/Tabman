@@ -98,7 +98,7 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
     internal private(set) var bottomSeparator = SeparatorView()
     
     /// Indicator for the bar.
-    public internal(set) var indicator: TabmanBarPageIndicator? {
+    public internal(set) var indicator: PageIndicator? {
         didSet {
             indicator?.delegate = self
             self.clear(indicator: oldValue)
@@ -127,7 +127,7 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
     internal var indicatorCompresses: Bool = TabmanBar.Appearance.defaultAppearance.indicator.compresses ?? false
     /// Preferred style for the indicator. 
     /// Bar conforms at own discretion via usePreferredIndicatorStyle()
-    public var preferredIndicatorStyle: TabmanBarPageIndicator.Style? {
+    public var preferredIndicatorStyle: PageIndicator.Style? {
         didSet {
             self.updateIndicator(forPreferredStyle: preferredIndicatorStyle)
         }
@@ -194,7 +194,7 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
     /// The default indicator style for the bar.
     ///
     /// - Returns: The default indicator style.
-    open func defaultIndicatorStyle() -> TabmanBarPageIndicator.Style {
+    open func defaultIndicatorStyle() -> PageIndicator.Style {
         print("indicatorStyle() returning default. This should be overridden in subclass")
         return .clear
     }
@@ -253,7 +253,7 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
                         for items: [TabmanBar.Item]) {
     }
     
-    open func add(indicator: TabmanBarPageIndicator, to contentView: UIView) {
+    open func add(indicator: PageIndicator, to contentView: UIView) {
         
     }
     
@@ -344,16 +344,16 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
 
 extension TabmanBar: TabmanIndicatorDelegate {
     
-    func indicator(requiresLayoutInvalidation indicator: TabmanBarPageIndicator) {
+    func indicator(requiresLayoutInvalidation indicator: PageIndicator) {
         self.invalidateIntrinsicContentSize()
         self.setNeedsLayout()
         self.layoutIfNeeded()
     }
 }
 
-internal extension TabmanBarPageIndicator.Style {
+internal extension PageIndicator.Style {
     
-    var rawType: TabmanBarPageIndicator.Type? {
+    var rawType: PageIndicator.Type? {
         switch self {
         case .line:
             return LinePageIndicator.self

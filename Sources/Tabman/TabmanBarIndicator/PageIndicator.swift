@@ -9,7 +9,7 @@
 import UIKit
 
 /// The lifecycle for an indicator.
-public protocol TabmanBarPageIndicatorLifecycle {
+public protocol PageIndicatorLifecycle {
     
     /// Construct the indicator
     func construct()
@@ -17,11 +17,11 @@ public protocol TabmanBarPageIndicatorLifecycle {
 
 internal protocol TabmanIndicatorDelegate: class {
     
-    func indicator(requiresLayoutInvalidation indicator: TabmanBarPageIndicator)
+    func indicator(requiresLayoutInvalidation indicator: PageIndicator)
 }
 
 /// Indicator that highlights the currently visible page.
-open class TabmanBarPageIndicator: UIView, TabmanBarPageIndicatorLifecycle {
+open class PageIndicator: UIView, PageIndicatorLifecycle {
     
     //
     // MARK: Types
@@ -39,7 +39,7 @@ open class TabmanBarPageIndicator: UIView, TabmanBarPageIndicatorLifecycle {
         case line
         case dot
         case chevron
-        case custom(type: TabmanBarPageIndicator.Type)
+        case custom(type: PageIndicator.Type)
     }
     
     /// The layer (Z) position of the indicator in relation to the bar contents.
@@ -113,9 +113,9 @@ open class TabmanBarPageIndicator: UIView, TabmanBarPageIndicatorLifecycle {
     }
 }
 
-internal extension TabmanBarPageIndicator.Style {
+internal extension PageIndicator.Style {
     
-    static func fromType(_ type: TabmanBarPageIndicator.Type?) -> TabmanBarPageIndicator.Style {
+    static func fromType(_ type: PageIndicator.Type?) -> PageIndicator.Style {
         guard let type = type else {
             return .clear
         }
