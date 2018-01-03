@@ -250,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				467E91D51FFD21FF002204C4 /* BarPageIndicator.swift */,
-				467E91D61FFD21FF002204C4 /* Styles */,
 				467E91DC1FFD21FF002204C4 /* BarPageIndicator+Styles.swift */,
+				467E91D61FFD21FF002204C4 /* Styles */,
 				467E91DD1FFD21FF002204C4 /* Views */,
 			);
 			path = BarPageIndicator;

@@ -93,23 +93,3 @@ open class BarPageIndicator: UIView, BarPageIndicatorLifecycle {
         return nil
     }
 }
-
-internal extension BarPageIndicator.Style {
-    
-    static func fromType(_ type: BarPageIndicator.Type?) -> BarPageIndicator.Style {
-        guard let type = type else {
-            return .clear
-        }
-        
-        switch type {
-        case is LinePageIndicator.Type:
-            return .line
-            
-        case is DotPageIndicator.Type:
-            return .dot
-            
-        default:
-            return .custom(type: type)
-        }
-    }
-}
