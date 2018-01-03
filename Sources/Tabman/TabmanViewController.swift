@@ -41,16 +41,6 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     /// Internal store for bar component transitions.
     internal var barTransitionStore = TabmanBarTransitionStore()
     
-    /// Whether any UIScrollView in child view controllers should be
-    /// automatically insetted to display below the TabmanBar.
-    @available(*, deprecated: 1.2.0, message: "Use automaticallyAdjustsChildViewInsets")
-    public var automaticallyAdjustsChildScrollViewInsets: Bool {
-        set {
-            automaticallyAdjustsChildViewInsets = newValue
-        } get {
-            return automaticallyAdjustsChildViewInsets
-        }
-    }
     /// Whether to automatically inset the contents of any child view controller.
     /// Defaults to true.
     public var automaticallyAdjustsChildViewInsets: Bool = true {
