@@ -350,21 +350,3 @@ extension TabmanBar: TabmanIndicatorDelegate {
         self.layoutIfNeeded()
     }
 }
-
-internal extension PageIndicator.Style {
-    
-    var rawType: PageIndicator.Type? {
-        switch self {
-        case .line:
-            return LinePageIndicator.self
-        case .dot:
-            return DotPageIndicator.self
-        case .chevron:
-            return ChevronPageIndicator.self
-        case .custom(let type):
-            return type
-        case .clear:
-            return ClearPageIndicator.self
-        }
-    }
-}

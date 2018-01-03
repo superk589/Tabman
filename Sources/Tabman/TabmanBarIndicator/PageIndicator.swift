@@ -22,26 +22,9 @@ internal protocol TabmanIndicatorDelegate: class {
 
 /// Indicator that highlights the currently visible page.
 open class PageIndicator: UIView, PageIndicatorLifecycle {
-    
-    //
+
     // MARK: Types
-    //
-    
-    /// The style of indicator to display.
-    ///
-    /// - clear: No visible indicator.
-    /// - line: Horizontal line pinned to bottom of bar.
-    /// - dot: Circular centered dot pinned to the bottom of the bar.
-    /// - chevron: Centered chevron pinned to the bottom of the bar.
-    /// - custom: A custom defined indicator.
-    public enum Style {
-        case clear
-        case line
-        case dot
-        case chevron
-        case custom(type: PageIndicator.Type)
-    }
-    
+
     /// The layer (Z) position of the indicator in relation to the bar contents.
     ///
     /// - background: Behind bar contents.
@@ -50,10 +33,8 @@ open class PageIndicator: UIView, PageIndicatorLifecycle {
         case background
         case foreground
     }
-    
-    //
+
     // MARK: Properties
-    //
     
     weak var delegate: TabmanIndicatorDelegate?
     
