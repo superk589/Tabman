@@ -84,7 +84,7 @@ internal class TabmanBlockTabBar: TabmanStaticButtonBar {
     // MARK: TabmanBar Lifecycle
     
     public override func construct(in contentView: UIView,
-                                   for items: [TabmanBar.Item]) {
+                                   for items: [BarItem]) {
         super.construct(in: contentView, for: items)
         
         let buttonContentView = UIView(forAutoLayout: ())

@@ -98,12 +98,12 @@ class TabViewController: TabmanViewController, PageboyViewControllerDataSource {
     private func initializeViewControllers(count: Int) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewControllers = [UIViewController]()
-        var barItems = [Item]()
+        var barItems = [BarItem]()
         
         for index in 0 ..< count {
             let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
             viewController.index = index + 1
-            barItems.append(Item(title: "Page No. \(index + 1)"))
+            barItems.append(BarItem(title: "Page No. \(index + 1)"))
             
             viewControllers.append(viewController)
         }

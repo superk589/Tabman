@@ -107,7 +107,7 @@ internal class TabmanStaticButtonBar: TabmanButtonBar {
     //
     
     func addAndLayoutBarButtons(toView view: UIView,
-                                items: [TabmanBar.Item],
+                                items: [BarItem],
                                 customize: TabmanButtonBarItemCustomize) {
         let insets = UIEdgeInsets(top: 0.0,
                                   left: self.interItemSpacing / 2,

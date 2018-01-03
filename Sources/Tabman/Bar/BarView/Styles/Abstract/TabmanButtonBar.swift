@@ -132,7 +132,7 @@ internal class TabmanButtonBar: TabmanBar {
     //
     
     public override func construct(in contentView: UIView,
-                                   for items: [TabmanBar.Item]) {
+                                   for items: [BarItem]) {
         
         self.buttons.removeAll()
         self.horizontalMarginConstraints.removeAll()
@@ -184,7 +184,7 @@ internal class TabmanButtonBar: TabmanBar {
     //
     
     internal func addBarButtons(toView view: UIView,
-                                items: [TabmanBar.Item],
+                                items: [BarItem],
                                 customize: TabmanButtonBarItemCustomize) {
         
         var previousButton: UIButton?

@@ -32,11 +32,11 @@ class TabmanTestViewController: TabmanViewController {
     
     private func recreateViewControllers() {
         var viewControllers = [UIViewController]()
-        var barItems: [TabmanBar.Item] = []
+        var barItems: [BarItem] = []
         
         for index in 0 ..< numberOfPages {
             viewControllers.append(UIViewController())
-            barItems.append(TabmanBar.Item(title: "Index \(index)"))
+            barItems.append(BarItem(title: "Index \(index)"))
         }
         
         self.viewControllers = viewControllers

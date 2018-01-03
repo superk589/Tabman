@@ -47,13 +47,13 @@ class TabmanBarConfigTests: TabmanViewControllerTests {
         
         let barItemCount = self.tabmanViewController.bar.items?.count ?? 0
         
-        var barItems: [TabmanBar.Item] = []
+        var barItems: [BarItem] = []
         for _ in 0 ..< barItemCount {
-            barItems.append(TabmanBar.Item(image: UIImage()))
+            barItems.append(BarItem(image: UIImage()))
         }
         self.tabmanViewController.bar.items = barItems
         
         XCTAssertEqual(barItemCount, self.tabmanViewController.bar.items!.count,
-                       "TabmanBarConfig does not support TabmanBar.Item with images correctly.")
+                       "TabmanBarConfig does not support BarItem with images correctly.")
     }
 }

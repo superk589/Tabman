@@ -45,7 +45,7 @@ public extension TabmanBar {
         }
         
         /// The items to display in the bar.
-        public var items: [TabmanBar.Item]? {
+        public var items: [BarItem]? {
             didSet {
                 self.handler?.config(self, didUpdate: items)
             }

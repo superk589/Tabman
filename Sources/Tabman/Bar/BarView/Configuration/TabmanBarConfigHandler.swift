@@ -30,7 +30,7 @@ internal protocol TabmanBarConfigHandler: class {
     /// - Parameters:
     ///   - config: The config.
     ///   - items: The new items.
-    func config(_ config: TabmanBar.Config, didUpdate items: [TabmanBar.Item]?)
+    func config(_ config: TabmanBar.Config, didUpdate items: [BarItem]?)
     
     /// The config had its appearance config updated.
     ///

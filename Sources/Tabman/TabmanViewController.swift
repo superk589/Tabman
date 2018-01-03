@@ -12,11 +12,6 @@ import Pageboy
 /// Page view controller with a bar indicator component.
 open class TabmanViewController: PageboyViewController, PageboyViewControllerDelegate {
     
-    // MARK: Types
-    
-    /// Item for a TabmanBar.
-    public typealias Item = TabmanBar.Item
-    
     // MARK: Properties
     
     /// The internally managed Tabman bar.
@@ -253,7 +248,7 @@ internal extension TabmanViewController {
 // MARK: - TabmanBarDataSource, TabmanBarResponder
 extension TabmanViewController: TabmanBarDataSource, TabmanBarResponder {
     
-    public func items(for bar: TabmanBar) -> [Item]? {
+    public func items(for bar: TabmanBar) -> [BarItem]? {
         if let itemCountLimit = bar.itemCountLimit {
             guard self.bar.items?.count ?? 0 <= itemCountLimit else {
                 print("TabmanBar Error:\nItems in bar.items exceed the available count for the current bar style: (\(itemCountLimit)).")
@@ -299,7 +294,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
         self.activeTabmanBar?.appearance = appearance
     }
     
-    func config(_ config: TabmanBar.Config, didUpdate items: [TabmanBar.Item]?) {
+    func config(_ config: TabmanBar.Config, didUpdate items: [BarItem]?) {
         activeTabmanBar?.reloadData()
         setNeedsChildAutoInsetUpdate()
     }
