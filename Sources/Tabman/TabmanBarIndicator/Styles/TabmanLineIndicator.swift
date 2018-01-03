@@ -68,7 +68,7 @@ internal class TabmanLineIndicator: TabmanBarIndicator {
     // MARK: Lifecycle
     //
     
-    public override func constructIndicator() {
+    public override func construct() {
         
         self.tintColor = TabmanBar.Appearance.defaultAppearance.indicator.color
     }

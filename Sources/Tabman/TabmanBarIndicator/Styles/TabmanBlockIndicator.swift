@@ -34,7 +34,7 @@ internal class TabmanBlockIndicator: TabmanBarIndicator {
         return .background
     }
     
-    public override func constructIndicator() {
+    public override func construct() {
         
         self.tintColor = TabmanBar.Appearance.defaultAppearance.indicator.color
     }

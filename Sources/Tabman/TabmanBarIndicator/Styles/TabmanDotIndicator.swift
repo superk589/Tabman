@@ -36,7 +36,7 @@ internal class TabmanDotIndicator: TabmanBarIndicator {
         return CGSize(width: 0.0, height: 6.0)
     }
     
-    public override func constructIndicator() {
+    public override func construct() {
         
         self.addSubview(dotView)
         dotView.autoSetDimension(.height, toSize: self.intrinsicContentSize.height)

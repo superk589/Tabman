@@ -36,7 +36,7 @@ internal class TabmanChevronIndicator: TabmanBarIndicator {
         return CGSize(width: 0.0, height: 10.0)
     }
     
-    public override func constructIndicator() {
+    public override func construct() {
         
         chevronView.backgroundColor = self.tintColor
         

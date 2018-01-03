@@ -9,10 +9,10 @@
 import UIKit
 
 /// The lifecycle for an indicator.
-public protocol TabmanIndicatorLifecycle {
+public protocol TabmanBarIndicatorLifecycle {
     
     /// Construct the indicator
-    func constructIndicator()
+    func construct()
 }
 
 internal protocol TabmanIndicatorDelegate: class {
@@ -21,7 +21,7 @@ internal protocol TabmanIndicatorDelegate: class {
 }
 
 /// Indicator that highlights the currently visible page.
-open class TabmanBarIndicator: UIView, TabmanIndicatorLifecycle {
+open class TabmanBarIndicator: UIView, TabmanBarIndicatorLifecycle {
     
     //
     // MARK: Types
@@ -75,7 +75,7 @@ open class TabmanBarIndicator: UIView, TabmanIndicatorLifecycle {
     }
     
     private func initIndicator() {
-        self.constructIndicator()
+        construct()
     }
     
     //
@@ -94,8 +94,8 @@ open class TabmanBarIndicator: UIView, TabmanIndicatorLifecycle {
         }
     }
     
-    open func constructIndicator() {
-        fatalError("constructIndicator() should be implemented in TabmanBar subclasses.")
+    open func construct() {
+        fatalError("construct() should be implemented in TabmanBarIndicator subclasses.")
     }
     
     /// The preferred layer position for the indicator.

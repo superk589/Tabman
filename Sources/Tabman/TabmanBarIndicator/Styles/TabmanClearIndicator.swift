@@ -14,7 +14,7 @@ internal class TabmanClearIndicator: TabmanBarIndicator {
     // MARK: Lifecycle
     //
     
-    override func constructIndicator() {
+    override func construct() {
         // do nothing
     }
     
