@@ -16,7 +16,7 @@ public extension TabmanViewController {
     ///
     /// - Parameter bar: The bar to attach.
     public func attach(bar: TabmanBar) {
-        guard self.attachedTabmanBar == nil else {
+        guard self.attachedBarView == nil else {
             fatalError("Tabman - You must detach the currently attached bar before attempting to attach a new bar.")
         }
         
@@ -31,7 +31,7 @@ public extension TabmanViewController {
             bar.appearance = appearance
         }
         bar.isHidden = true
-        self.attachedTabmanBar = bar
+        self.attachedBarView = bar
         
         bar.reloadData()
     }
@@ -41,7 +41,7 @@ public extension TabmanViewController {
     ///
     /// - Returns: The detached bar.
     @discardableResult public func detachAttachedBar() -> TabmanBar? {
-        guard let bar = self.attachedTabmanBar, self.attachedTabmanBar === bar else {
+        guard let bar = self.attachedBarView, self.attachedBarView === bar else {
             return nil
         }
         
@@ -49,7 +49,7 @@ public extension TabmanViewController {
         bar.responder = nil
         bar.transitionStore = nil
         bar.isHidden = false
-        self.attachedTabmanBar = nil
+        self.attachedBarView = nil
         
         self.barView?.reloadData()
         self.view.layoutIfNeeded()

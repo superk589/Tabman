@@ -17,13 +17,13 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     /// The internally managed Tabman bar.
     internal fileprivate(set) var barView: TabmanBar?
     /// The currently attached TabmanBar (if it exists).
-    internal var attachedTabmanBar: TabmanBar?
+    internal var attachedBarView: TabmanBar?
     /// The view that is currently being used to embed the instance managed TabmanBar.
     internal var embeddingView: UIView?
     
     /// Returns the active bar, prefers attachedTabmanBar if available.
     internal var activeTabmanBar: TabmanBar? {
-        if let attachedTabmanBar = self.attachedTabmanBar {
+        if let attachedTabmanBar = self.attachedBarView {
             return attachedTabmanBar
         }
         return barView
@@ -69,7 +69,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         reloadBarWithCurrentPosition()
         
         let appearance = bar.appearance ?? .defaultAppearance
-        let isBarExternal = embeddingView != nil || attachedTabmanBar != nil
+        let isBarExternal = embeddingView != nil || attachedBarView != nil
         activeTabmanBar?.updateBackgroundEdgesForSystemAreasIfNeeded(for: bar.actualLocation,
                                                                      in: self,
                                                                      appearance: appearance,
@@ -273,7 +273,7 @@ extension TabmanViewController: TabmanBarDataSource, TabmanBarResponder {
 extension TabmanViewController: TabmanBarConfigHandler {
     
     func config(_ config: TabmanBar.Config, didUpdate style: TabmanBar.Style) {
-        guard self.attachedTabmanBar == nil else {
+        guard self.attachedBarView == nil else {
             return
         }
         
@@ -283,7 +283,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
     }
     
     func config(_ config: TabmanBar.Config, didUpdate location: TabmanBar.Location) {
-        guard self.attachedTabmanBar == nil else {
+        guard self.attachedBarView == nil else {
             return
         }
 

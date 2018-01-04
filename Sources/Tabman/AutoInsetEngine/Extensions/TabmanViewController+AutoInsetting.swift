@@ -47,7 +47,7 @@ private extension TabmanViewController {
     ///
     /// - Returns: The required bar insets
     private func actualBarInsets() -> UIEdgeInsets {
-        guard self.embeddingView == nil && self.attachedTabmanBar == nil else {
+        guard self.embeddingView == nil && self.attachedBarView == nil else {
             return .zero
         }
         guard self.activeTabmanBar?.isHidden != true else {
