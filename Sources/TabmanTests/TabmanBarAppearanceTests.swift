@@ -22,7 +22,7 @@ class TabmanBarAppearanceTests: TabmanViewControllerTests {
             appearance.indicator.preferredStyle = .chevron
         })
         
-        let indicator = self.tabmanViewController.tabmanBar!.indicator!
+        let indicator = self.tabmanViewController.barView!.indicator!
         let indicatorType = TabmanBarPageIndicator.Style.chevron.rawType!
         
         XCTAssertTrue(type(of: indicator) == indicatorType,
@@ -35,7 +35,7 @@ class TabmanBarAppearanceTests: TabmanViewControllerTests {
             appearance.indicator.preferredStyle = .dot
         })
         
-        let indicator = self.tabmanViewController.tabmanBar!.indicator!
+        let indicator = self.tabmanViewController.barView!.indicator!
         let indicatorType = TabmanBarPageIndicator.Style.dot.rawType!
         
         XCTAssertFalse(type(of: indicator) == indicatorType,
@@ -48,7 +48,7 @@ class TabmanBarAppearanceTests: TabmanViewControllerTests {
             appearance.style.background = .blur(style: .dark)
         })
         
-        let backgroundStyle = self.tabmanViewController.tabmanBar!.backgroundView.style
+        let backgroundStyle = self.tabmanViewController.barView!.backgroundView.style
         XCTAssertTrue(backgroundStyle != .none,
                       "background style in TabmanBarAppearance is ignored incorrectly")
     }

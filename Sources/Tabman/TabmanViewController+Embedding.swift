@@ -25,7 +25,7 @@ public extension TabmanViewController {
     ///
     /// - Parameter view: The view to embed the bar in.
     public func embedBar(in view: UIView) {
-        guard let bar = self.tabmanBar else {
+        guard let bar = self.barView else {
             return
         }
         guard self.embeddingView == nil || view === self.embeddingView else {
@@ -44,7 +44,7 @@ public extension TabmanViewController {
     
     /// Disembed the TabmanBar from an external view if it is currently embedded.
     public func disembedBar() {
-        guard let bar = self.tabmanBar, self.embeddingView != nil else {
+        guard let bar = self.barView, self.embeddingView != nil else {
             return
         }
         

@@ -33,7 +33,7 @@ class TabmanViewControllerTests: XCTestCase {
                                                BarItem(title: "test"),
                                                BarItem(title: "test")]
         
-        XCTAssertTrue(self.tabmanViewController.tabmanBar?.items?.count == 5,
+        XCTAssertTrue(self.tabmanViewController.barView?.items?.count == 5,
                       "TabmanBar itemCountLimit is not evaluated correctly for valid item count.")
     }
     
@@ -48,7 +48,7 @@ class TabmanViewControllerTests: XCTestCase {
                                                BarItem(title: "test"),
                                                BarItem(title: "test")]
         
-        XCTAssertNil(self.tabmanViewController.tabmanBar?.items,
+        XCTAssertNil(self.tabmanViewController.barView?.items,
                      "TabmanBar itemCountLimit is not evaluated correctly for invalid item count.")
     }
     
@@ -61,7 +61,7 @@ class TabmanViewControllerTests: XCTestCase {
         self.tabmanViewController.attach(bar: testBar)
         
         XCTAssertTrue(self.tabmanViewController.attachedTabmanBar != nil &&
-            self.tabmanViewController.tabmanBar?.isHidden ?? false &&
+            self.tabmanViewController.barView?.isHidden ?? false &&
             self.tabmanViewController.attachedTabmanBar!.dataSource != nil,
                       "Attaching external TabmanBar does not work correctly.")
     }
@@ -74,7 +74,7 @@ class TabmanViewControllerTests: XCTestCase {
         let detachedBar = self.tabmanViewController.detachAttachedBar()
         
         XCTAssertTrue(self.tabmanViewController.attachedTabmanBar == nil &&
-            self.tabmanViewController.tabmanBar?.isHidden ?? true == false &&
+            self.tabmanViewController.barView?.isHidden ?? true == false &&
             detachedBar?.dataSource == nil,
                       "Detaching external TabmanBar does not clean up correctly.")
     }
@@ -87,7 +87,7 @@ class TabmanViewControllerTests: XCTestCase {
         self.tabmanViewController.embedBar(in: testView)
         
         XCTAssertTrue(testView.subviews.count != 0 &&
-            self.tabmanViewController.tabmanBar?.superview === testView &&
+            self.tabmanViewController.barView?.superview === testView &&
             self.tabmanViewController.embeddingView === testView,
                       "Embedding TabmanBar in an external view does not embed correctly.")
     }
@@ -100,7 +100,7 @@ class TabmanViewControllerTests: XCTestCase {
         self.tabmanViewController.disembedBar()
         
         XCTAssertTrue(testView.subviews.count == 0 &&
-            self.tabmanViewController.tabmanBar?.superview !== testView &&
+            self.tabmanViewController.barView?.superview !== testView &&
             self.tabmanViewController.embeddingView == nil,
                       "Disembedding TabmanBar from an external view does not clean up correctly.")
     }

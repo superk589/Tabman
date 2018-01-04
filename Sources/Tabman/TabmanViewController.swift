@@ -15,7 +15,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     // MARK: Properties
     
     /// The internally managed Tabman bar.
-    internal fileprivate(set) var tabmanBar: TabmanBar?
+    internal fileprivate(set) var barView: TabmanBar?
     /// The currently attached TabmanBar (if it exists).
     internal var attachedTabmanBar: TabmanBar?
     /// The view that is currently being used to embed the instance managed TabmanBar.
@@ -26,7 +26,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         if let attachedTabmanBar = self.attachedTabmanBar {
             return attachedTabmanBar
         }
-        return tabmanBar
+        return barView
     }
     
     /// Configuration for the bar.
@@ -193,7 +193,7 @@ internal extension TabmanViewController {
             bar.appearance = appearance
         }
 
-        self.tabmanBar = bar
+        self.barView = bar
     }
     
     /// Update the bar with a new screen location.
@@ -205,7 +205,7 @@ internal extension TabmanViewController {
             return
         }
         
-        guard let bar = self.tabmanBar else {
+        guard let bar = self.barView else {
             return
         }
         guard bar.superview == nil || bar.superview === self.view else {
@@ -277,7 +277,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
             return
         }
         
-        self.clearUpBar(&self.tabmanBar)
+        self.clearUpBar(&self.barView)
         self.reloadBar(withStyle: style)
         self.updateBar(withLocation: config.location)
     }

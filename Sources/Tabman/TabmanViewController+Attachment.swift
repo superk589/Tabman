@@ -20,7 +20,7 @@ public extension TabmanViewController {
             fatalError("Tabman - You must detach the currently attached bar before attempting to attach a new bar.")
         }
         
-        self.tabmanBar?.isHidden = true
+        self.barView?.isHidden = true
         setNeedsChildAutoInsetUpdate()
         
         // hook up new bar
@@ -51,7 +51,7 @@ public extension TabmanViewController {
         bar.isHidden = false
         self.attachedTabmanBar = nil
         
-        self.tabmanBar?.reloadData()
+        self.barView?.reloadData()
         self.view.layoutIfNeeded()
         
         setNeedsChildAutoInsetUpdate()

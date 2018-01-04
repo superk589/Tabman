@@ -21,14 +21,14 @@ class TabmanBarConfigTests: TabmanViewControllerTests {
     /// Test that the TabmanBarConfig updates style correctly.
     func testBarConfigStyleSet() {
         self.tabmanViewController.bar.style = .bar
-        XCTAssert(self.tabmanViewController.tabmanBar is TabmanLineBar,
+        XCTAssert(self.tabmanViewController.barView is TabmanLineBar,
                   "TabmanBarConfig does not update style correctly.")
     }
     
     /// Test that the TabmanBarConfig updates bar location correctly.
     func testBarConfigLocationSet() {
         self.tabmanViewController.bar.location = .bottom
-        XCTAssert(self.tabmanViewController.tabmanBar?.frame.origin.y ?? 0.0 > self.tabmanViewController.view.frame.size.height / 2.0,
+        XCTAssert(self.tabmanViewController.barView?.frame.origin.y ?? 0.0 > self.tabmanViewController.view.frame.size.height / 2.0,
                   "TabmanBarConfig does not update bar location correctly.")
     }
     
