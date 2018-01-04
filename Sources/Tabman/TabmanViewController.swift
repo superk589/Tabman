@@ -139,8 +139,8 @@ private extension TabmanViewController {
     /// - Parameters:
     ///   - position: The new position.
     ///   - direction: The direction of travel.
-    private func updateBar(with position: CGFloat,
-                           direction: PageboyViewController.NavigationDirection) {
+    private final func updateBar(with position: CGFloat,
+                                 direction: PageboyViewController.NavigationDirection) {
         
         let viewControllersCount = self.pageCount ?? 0
         let barItemsCount = self.activeBarView?.items?.count ?? 0
@@ -155,7 +155,7 @@ private extension TabmanViewController {
     
     /// Update the bar with the currently active position.
     /// Called after any layout changes.
-    private func updateBarWithCurrentPosition() {
+    private final func updateBarWithCurrentPosition() {
         guard let currentPosition = self.currentPosition, !isScrollingAnimated else {
             return
         }
@@ -171,7 +171,7 @@ internal extension TabmanViewController {
     /// Remove a bar from it's superview and clear up.
     ///
     /// - Parameter bar: The bar to destroy.
-    func destroyBar(_ bar: inout TabmanBar?) {
+    final func destroyBar(_ bar: inout TabmanBar?) {
         bar?.removeFromSuperview()
         bar = nil
     }
@@ -179,7 +179,7 @@ internal extension TabmanViewController {
     /// Initialize a new bar with a style.
     ///
     /// - Parameter style: The style.
-    func createBar(with style: TabmanBar.Style) {
+    final func createBar(with style: TabmanBar.Style) {
         guard let barType = style.rawType else {
             return
         }
@@ -201,7 +201,7 @@ internal extension TabmanViewController {
     /// Update the bar with a new screen location.
     ///
     /// - Parameter location: The new location.
-    func moveBar(to location: TabmanBar.Location) {
+    final func moveBar(to location: TabmanBar.Location) {
         guard self.embeddingContainer == nil else {
             self.embedBar(in: self.embeddingContainer!)
             return
