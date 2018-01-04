@@ -51,6 +51,6 @@ public extension TabmanViewController {
         bar.removeFromSuperview()
         self.embeddingContainer = nil
         
-        self.updateBar(withLocation: self.bar.location)
+        self.updateBar(with: self.bar.location)
     }
 }

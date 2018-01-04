@@ -18,9 +18,6 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     internal fileprivate(set) var barView: TabmanBar?
     /// The currently attached TabmanBar (if it exists).
     internal var attachedBarView: TabmanBar?
-    /// The view that is currently being used to embed the instance managed TabmanBar.
-    internal var embeddingContainer: UIView?
-    
     /// Returns the active bar, prefers attachedTabmanBar if available.
     internal var activeBarView: TabmanBar? {
         if let attachedBarView = self.attachedBarView {
@@ -28,6 +25,9 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         }
         return barView
     }
+    
+    /// The view that is currently being used to embed the instance managed TabmanBar.
+    internal var embeddingContainer: UIView?
     
     /// Configuration for the bar.
     /// Able to set items, appearance, location and style through this object.
@@ -58,8 +58,8 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         self.bar.handler = self
         
         // add bar to view
-        self.reloadBar(withStyle: self.bar.style)
-        self.updateBar(withLocation: self.bar.location)
+        self.reloadBar(with: self.bar.style)
+        self.updateBar(with: self.bar.location)
     }
     
     open override func viewDidLayoutSubviews() {
@@ -110,7 +110,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
                                     direction: PageboyViewController.NavigationDirection,
                                     animated: Bool) {
         isScrollingAnimated = false
-        self.updateBar(withPosition: CGFloat(index),
+        self.updateBar(with: CGFloat(index),
                        direction: direction)
     }
     
@@ -119,7 +119,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
                                     direction: PageboyViewController.NavigationDirection,
                                     animated: Bool) {
         if !animated {
-            self.updateBar(withPosition: pageboyViewController.navigationOrientation == .horizontal ? position.x : position.y,
+            self.updateBar(with: pageboyViewController.navigationOrientation == .horizontal ? position.x : position.y,
                            direction: direction)
         }
     }
@@ -137,7 +137,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     /// - Parameters:
     ///   - position: The new position.
     ///   - direction: The direction of travel.
-    private func updateBar(withPosition position: CGFloat,
+    private func updateBar(with position: CGFloat,
                            direction: PageboyViewController.NavigationDirection) {
         
         let viewControllersCount = self.pageCount ?? 0
@@ -159,7 +159,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         }
         
         let position = self.navigationOrientation == .horizontal ? currentPosition.x : currentPosition.y
-        updateBar(withPosition: position, direction: .neutral)
+        updateBar(with: position, direction: .neutral)
     }
 }
 
@@ -177,7 +177,7 @@ internal extension TabmanViewController {
     /// Reload the tab bar for a new style.
     ///
     /// - Parameter style: The new style.
-    func reloadBar(withStyle style: TabmanBar.Style) {
+    func reloadBar(with style: TabmanBar.Style) {
         guard let barType = style.rawType else {
             return
         }
@@ -199,7 +199,7 @@ internal extension TabmanViewController {
     /// Update the bar with a new screen location.
     ///
     /// - Parameter location: The new location.
-    func updateBar(withLocation location: TabmanBar.Location) {
+    func updateBar(with location: TabmanBar.Location) {
         guard self.embeddingContainer == nil else {
             self.embedBar(in: self.embeddingContainer!)
             return
@@ -278,8 +278,8 @@ extension TabmanViewController: TabmanBarConfigHandler {
         }
         
         self.clearUpBar(&self.barView)
-        self.reloadBar(withStyle: style)
-        self.updateBar(withLocation: config.location)
+        self.reloadBar(with: style)
+        self.updateBar(with: config.location)
     }
     
     func config(_ config: TabmanBar.Config, didUpdate location: TabmanBar.Location) {
@@ -287,7 +287,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
             return
         }
 
-        self.updateBar(withLocation: location)
+        self.updateBar(with: location)
     }
     
     func config(_ config: TabmanBar.Config, didUpdate appearance: TabmanBar.Appearance) {
