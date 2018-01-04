@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import PureLayout
 
 internal class SeparatorView: UIView {
     
-    //
     // MARK: Properties
-    //
     
     private var leftPinConstraint: NSLayoutConstraint?
     private var rightPinConstraint: NSLayoutConstraint?
@@ -42,9 +39,7 @@ internal class SeparatorView: UIView {
         }
     }
     
-    //
     // MARK: Init
-    //
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -70,8 +65,18 @@ internal class SeparatorView: UIView {
     func addAsSubview(to parent: UIView) {
         
         parent.addSubview(self)
-        autoPinEdge(toSuperviewEdge: .bottom)
-        leftPinConstraint = autoPinEdge(toSuperviewEdge: .leading)
-        rightPinConstraint = autoPinEdge(toSuperviewEdge: .trailing)
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        let bottomPin = bottomAnchor.constraint(equalTo: parent.bottomAnchor)
+        let leadingPin = leadingAnchor.constraint(equalTo: parent.leadingAnchor)
+        let trailingPin = trailingAnchor.constraint(equalTo: parent.trailingAnchor)
+        
+        NSLayoutConstraint.activate([
+            bottomPin, leadingPin, trailingPin
+            ])
+        
+        self.leftPinConstraint = leadingPin
+        self.rightPinConstraint = trailingPin
     }
 }
