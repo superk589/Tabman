@@ -10,16 +10,7 @@ import UIKit
 
 // MARK: - Internal TabmanBar embedding in external view.
 public extension TabmanViewController {
-    
-    /// Embed the TabmanBar in an external view.
-    /// This will add the bar to the specified view, and pin the bar edges to the view edges.
-    ///
-    /// - Parameter view: The view to embed the bar in.
-    @available(*, deprecated: 1.0.4, message: "Use embedBar(in: )")
-    public func embedBar(inView view: UIView) {
-        embedBar(in: view)
-    }
-    
+        
     /// Embed the TabmanBar in an external view.
     /// This will add the bar to the specified view, and pin the bar edges to the view edges.
     ///
