@@ -20,7 +20,7 @@ class AutoInsetEngine {
     // MARK: Insetting
     
     func inset(_ childViewController: UIViewController?,
-               requiredInsets: TabmanBar.Insets) {
+               requiredInsets: BarInsets) {
         guard let childViewController = childViewController else {
             return
         }
@@ -68,7 +68,7 @@ class AutoInsetEngine {
     }
     
     private func reset(_ childViewController: UIViewController,
-                       from requiredInsets: TabmanBar.Insets) {
+                       from requiredInsets: BarInsets) {
         
         if #available(iOS 11, *) {
             childViewController.additionalSafeAreaInsets = .zero
@@ -105,7 +105,7 @@ class AutoInsetEngine {
     ///   - requiredInsets: Required TabmanBar insets.
     /// - Returns: Actual contentInset values to use.
     private func calculateActualRequiredContentInset(for scrollView: UIScrollView,
-                                                     from requiredInsets: TabmanBar.Insets) -> UIEdgeInsets {
+                                                     from requiredInsets: BarInsets) -> UIEdgeInsets {
         var requiredContentInset = requiredInsets.all
         let currentContentInset = self.viewControllerInsets[scrollView.hash] ?? .zero
         

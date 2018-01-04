@@ -65,7 +65,7 @@ public extension TabmanBar {
         }
         
         /// The required insets for the bar.
-        public internal(set) var requiredInsets: TabmanBar.Insets = .zero
+        public internal(set) var requiredInsets: BarInsets = .zero
         
         /// Collection of behaviors that are active on the bar.
         public var behaviors: [Behavior]? {

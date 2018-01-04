@@ -39,8 +39,8 @@ private extension TabmanViewController {
             layoutInsets.bottom = bottomLayoutGuide.length
         }
         
-        self.bar.requiredInsets = TabmanBar.Insets(safeAreaInsets: layoutInsets,
-                                                   bar: self.actualBarInsets())
+        self.bar.requiredInsets = BarInsets(safeAreaInsets: layoutInsets,
+                                            bar: self.actualBarInsets())
     }
     
     /// Calculate the actual required insets for the current bar.
