@@ -153,7 +153,7 @@ private extension TabmanViewController {
         self.activeBarView?.updatePosition(position, direction: direction)
     }
     
-    /// Reload the bar with the currently active position.
+    /// Update the bar with the currently active position.
     /// Called after any layout changes.
     private func updateBarWithCurrentPosition() {
         guard let currentPosition = self.currentPosition, !isScrollingAnimated else {
@@ -168,10 +168,10 @@ private extension TabmanViewController {
 // MARK: - Bar Reloading / Layout
 internal extension TabmanViewController {
     
-    /// Clear the existing bar from the screen.
+    /// Destroy the existing bar.
     ///
     /// - Parameter bar: The bar to clear.
-    func clearUpBar(_ bar: inout TabmanBar?) {
+    func destroyBar(_ bar: inout TabmanBar?) {
         bar?.removeFromSuperview()
         bar = nil
     }
@@ -279,7 +279,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
             return
         }
         
-        self.clearUpBar(&self.barView)
+        self.destroyBar(&self.barView)
         self.reloadBar(with: style)
         self.moveBar(to: config.location)
     }
