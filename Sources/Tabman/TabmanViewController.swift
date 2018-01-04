@@ -58,7 +58,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         self.bar.handler = self
         
         // add bar to view
-        self.reloadBar(with: self.bar.style)
+        self.createBar(with: self.bar.style)
         self.moveBar(to: self.bar.location)
     }
     
@@ -168,23 +168,23 @@ private extension TabmanViewController {
 // MARK: - Bar Reloading / Layout
 internal extension TabmanViewController {
     
-    /// Destroy the existing bar.
+    /// Remove a bar from it's superview and clear up.
     ///
-    /// - Parameter bar: The bar to clear.
+    /// - Parameter bar: The bar to destroy.
     func destroyBar(_ bar: inout TabmanBar?) {
         bar?.removeFromSuperview()
         bar = nil
     }
     
-    /// Reload the tab bar for a new style.
+    /// Initialize a new bar with a style.
     ///
-    /// - Parameter style: The new style.
-    func reloadBar(with style: TabmanBar.Style) {
+    /// - Parameter style: The style.
+    func createBar(with style: TabmanBar.Style) {
         guard let barType = style.rawType else {
             return
         }
         
-        // re create the tab bar with a new style
+        // create the bar with a new style
         let bar = barType.init()
         bar.transitionStore = self.barTransitionStore
         bar.dataSource = self
@@ -280,7 +280,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
         }
         
         self.destroyBar(&self.barView)
-        self.reloadBar(with: style)
+        self.createBar(with: style)
         self.moveBar(to: config.location)
     }
     
