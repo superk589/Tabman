@@ -28,11 +28,11 @@ public extension TabmanViewController {
         guard let bar = self.barView else {
             return
         }
-        guard self.embeddingView == nil || view === self.embeddingView else {
+        guard self.embeddingContainer == nil || view === self.embeddingContainer else {
             fatalError("Tabman - The bar must be disembedded from the view it is currently embedded in first. Use disembedBar().")
         }
         
-        self.embeddingView = view
+        self.embeddingContainer = view
         
         bar.removeFromSuperview()
         view.addSubview(bar)
@@ -44,12 +44,12 @@ public extension TabmanViewController {
     
     /// Disembed the TabmanBar from an external view if it is currently embedded.
     public func disembedBar() {
-        guard let bar = self.barView, self.embeddingView != nil else {
+        guard let bar = self.barView, self.embeddingContainer != nil else {
             return
         }
         
         bar.removeFromSuperview()
-        self.embeddingView = nil
+        self.embeddingContainer = nil
         
         self.updateBar(withLocation: self.bar.location)
     }

@@ -19,7 +19,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     /// The currently attached TabmanBar (if it exists).
     internal var attachedBarView: TabmanBar?
     /// The view that is currently being used to embed the instance managed TabmanBar.
-    internal var embeddingView: UIView?
+    internal var embeddingContainer: UIView?
     
     /// Returns the active bar, prefers attachedTabmanBar if available.
     internal var activeTabmanBar: TabmanBar? {
@@ -69,7 +69,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         reloadBarWithCurrentPosition()
         
         let appearance = bar.appearance ?? .defaultAppearance
-        let isBarExternal = embeddingView != nil || attachedBarView != nil
+        let isBarExternal = embeddingContainer != nil || attachedBarView != nil
         activeTabmanBar?.updateBackgroundEdgesForSystemAreasIfNeeded(for: bar.actualLocation,
                                                                      in: self,
                                                                      appearance: appearance,
@@ -200,8 +200,8 @@ internal extension TabmanViewController {
     ///
     /// - Parameter location: The new location.
     func updateBar(withLocation location: TabmanBar.Location) {
-        guard self.embeddingView == nil else {
-            self.embedBar(in: self.embeddingView!)
+        guard self.embeddingContainer == nil else {
+            self.embedBar(in: self.embeddingContainer!)
             return
         }
         
