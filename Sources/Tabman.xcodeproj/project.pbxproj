@@ -10,11 +10,11 @@
 		46146FA41FD6D530004F7D78 /* UIView+DefaultTintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46146FA31FD6D530004F7D78 /* UIView+DefaultTintColor.swift */; };
 		46146FA61FD6D55A004F7D78 /* UIView+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46146FA51FD6D55A004F7D78 /* UIView+Localization.swift */; };
 		461500581FFE3D4800A23F68 /* BarInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461500571FFE3D4700A23F68 /* BarInsets.swift */; };
+		4615005E1FFE58D400A23F68 /* BarLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615005D1FFE58D400A23F68 /* BarLocation.swift */; };
 		4659D9DA1FC4B617006E483F /* TabmanBarBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4659D9D91FC4B617006E483F /* TabmanBarBehaviorTests.swift */; };
 		467E923D1FFD2374002204C4 /* AutoInsetEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E92391FFD2374002204C4 /* AutoInsetEngine.swift */; };
 		467E923E1FFD2374002204C4 /* UIViewController+AutoInsetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E923B1FFD2374002204C4 /* UIViewController+AutoInsetting.swift */; };
 		467E923F1FFD2374002204C4 /* TabmanViewController+AutoInsetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E923C1FFD2374002204C4 /* TabmanViewController+AutoInsetting.swift */; };
-		467E927B1FFD23B8002204C4 /* TabmanBar+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E92421FFD23B8002204C4 /* TabmanBar+Location.swift */; };
 		467E927C1FFD23B8002204C4 /* TabmanBar+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E92441FFD23B8002204C4 /* TabmanBar+Config.swift */; };
 		467E927D1FFD23B8002204C4 /* TabmanBarConfigHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E92451FFD23B8002204C4 /* TabmanBarConfigHandler.swift */; };
 		467E927E1FFD23B8002204C4 /* TabmanBar+Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E92461FFD23B8002204C4 /* TabmanBar+Indicator.swift */; };
@@ -91,11 +91,11 @@
 		46146FA31FD6D530004F7D78 /* UIView+DefaultTintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DefaultTintColor.swift"; sourceTree = "<group>"; };
 		46146FA51FD6D55A004F7D78 /* UIView+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Localization.swift"; sourceTree = "<group>"; };
 		461500571FFE3D4700A23F68 /* BarInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarInsets.swift; sourceTree = "<group>"; };
+		4615005D1FFE58D400A23F68 /* BarLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarLocation.swift; sourceTree = "<group>"; };
 		4659D9D91FC4B617006E483F /* TabmanBarBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabmanBarBehaviorTests.swift; sourceTree = "<group>"; };
 		467E92391FFD2374002204C4 /* AutoInsetEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoInsetEngine.swift; sourceTree = "<group>"; };
 		467E923B1FFD2374002204C4 /* UIViewController+AutoInsetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AutoInsetting.swift"; sourceTree = "<group>"; };
 		467E923C1FFD2374002204C4 /* TabmanViewController+AutoInsetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TabmanViewController+AutoInsetting.swift"; sourceTree = "<group>"; };
-		467E92421FFD23B8002204C4 /* TabmanBar+Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TabmanBar+Location.swift"; sourceTree = "<group>"; };
 		467E92441FFD23B8002204C4 /* TabmanBar+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TabmanBar+Config.swift"; sourceTree = "<group>"; };
 		467E92451FFD23B8002204C4 /* TabmanBarConfigHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabmanBarConfigHandler.swift; sourceTree = "<group>"; };
 		467E92461FFD23B8002204C4 /* TabmanBar+Indicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TabmanBar+Indicator.swift"; sourceTree = "<group>"; };
@@ -217,6 +217,7 @@
 			children = (
 				467E92A51FFD23E0002204C4 /* BarItem.swift */,
 				461500571FFE3D4700A23F68 /* BarInsets.swift */,
+				4615005D1FFE58D400A23F68 /* BarLocation.swift */,
 				467E92411FFD23B8002204C4 /* BarView */,
 				467E926D1FFD23B8002204C4 /* BarPageIndicator */,
 				467E92791FFD23B8002204C4 /* BarBackgroundView */,
@@ -228,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				467E926C1FFD23B8002204C4 /* TabmanBar.swift */,
-				467E92421FFD23B8002204C4 /* TabmanBar+Location.swift */,
 				467E92461FFD23B8002204C4 /* TabmanBar+Indicator.swift */,
 				467E92471FFD23B8002204C4 /* TabmanBar+Styles.swift */,
 				467E92481FFD23B8002204C4 /* TabmanBar+Construction.swift */,
@@ -636,7 +636,6 @@
 				467E927C1FFD23B8002204C4 /* TabmanBar+Config.swift in Sources */,
 				467E92A61FFD23E0002204C4 /* BarItem.swift in Sources */,
 				467E92821FFD23B8002204C4 /* TabmanPositionalUtil.swift in Sources */,
-				467E927B1FFD23B8002204C4 /* TabmanBar+Location.swift in Sources */,
 				D616D0BD1E783E6400C7AA32 /* UIImage+Resize.swift in Sources */,
 				D62AC1A91E5C54570020B8AE /* UIView+Layout.swift in Sources */,
 				467E928A1FFD23B8002204C4 /* TabmanBar+Appearance.swift in Sources */,
@@ -654,6 +653,7 @@
 				D62AC1AB1E5C55290020B8AE /* ContentViewScrollView.swift in Sources */,
 				46146FA61FD6D55A004F7D78 /* UIView+Localization.swift in Sources */,
 				467E927D1FFD23B8002204C4 /* TabmanBarConfigHandler.swift in Sources */,
+				4615005E1FFE58D400A23F68 /* BarLocation.swift in Sources */,
 				46146FA41FD6D530004F7D78 /* UIView+DefaultTintColor.swift in Sources */,
 				461500581FFE3D4800A23F68 /* BarInsets.swift in Sources */,
 				467E928E1FFD23B8002204C4 /* BarBehaviorActivist.swift in Sources */,

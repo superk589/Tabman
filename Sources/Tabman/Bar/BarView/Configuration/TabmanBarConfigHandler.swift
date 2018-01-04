@@ -23,7 +23,7 @@ internal protocol TabmanBarConfigHandler: class {
     /// - Parameters:
     ///   - config: The config.
     ///   - location: The new location.
-    func config(_ config: TabmanBar.Config, didUpdate location: TabmanBar.Location)
+    func config(_ config: TabmanBar.Config, didUpdate location: BarLocation)
     
     /// The config had its items updated.
     ///

@@ -201,7 +201,7 @@ internal extension TabmanViewController {
     /// Update the bar with a new screen location.
     ///
     /// - Parameter location: The new location.
-    final func moveBar(to location: TabmanBar.Location) {
+    final func moveBar(to location: BarLocation) {
         guard self.embeddingContainer == nil else {
             self.embedBar(in: self.embeddingContainer!)
             return
@@ -284,7 +284,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
         self.moveBar(to: config.location)
     }
     
-    func config(_ config: TabmanBar.Config, didUpdate location: TabmanBar.Location) {
+    func config(_ config: TabmanBar.Config, didUpdate location: BarLocation) {
         guard self.attachedBarView == nil else {
             return
         }

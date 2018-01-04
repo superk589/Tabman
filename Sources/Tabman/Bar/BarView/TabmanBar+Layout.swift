@@ -68,7 +68,7 @@ internal extension TabmanBar {
     ///   - viewController: The view controller containing the bar.
     ///   - appearance: The appearance configuration of the bar.
     ///   - canExtend: Whether the edges can be extended.
-    func updateBackgroundEdgesForSystemAreasIfNeeded(for location: TabmanBar.Location,
+    func updateBackgroundEdgesForSystemAreasIfNeeded(for location: BarLocation,
                                                      in viewController: UIViewController,
                                                      appearance: TabmanBar.Appearance,
                                                      canExtend: Bool) {
@@ -110,7 +110,7 @@ internal extension TabmanBar {
     ///   - safeAreaInsets: The current insets of the safe area.
     ///   - appearance: The appearance configuration of the bar.
     ///   - canExtend: Whether the edges can be extended.
-    private func updateBackgroundEdgesForStatusBarIfNeeded(location: TabmanBar.Location,
+    private func updateBackgroundEdgesForStatusBarIfNeeded(location: BarLocation,
                                                            safeAreaInsets: UIEdgeInsets,
                                                            appearance: TabmanBar.Appearance,
                                                            canExtend: Bool) {
@@ -139,7 +139,7 @@ internal extension TabmanBar {
     ///   - safeAreaInsets: The current insets of the safe area.
     ///   - appearance: The appearance configuration of the bar.
     ///   - canExtend: Whether the edges can be extended.
-    func updateBackgroundEdgesForBottomSafeAreaIfNeeded(location: TabmanBar.Location,
+    func updateBackgroundEdgesForBottomSafeAreaIfNeeded(location: BarLocation,
                                                         viewController: UIViewController,
                                                         safeAreaInsets: UIEdgeInsets,
                                                         appearance: TabmanBar.Appearance,

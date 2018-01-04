@@ -50,7 +50,7 @@ internal extension TabmanBar.Style {
     }
     
     /// Where the bar is preferred to be displayed for the style.
-    var preferredLocation: TabmanBar.Location {
+    var preferredLocation: BarLocation {
         switch self {
             
         case .bar:

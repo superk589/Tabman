@@ -28,7 +28,7 @@ public extension TabmanBar {
         }
         
         /// The location of the bar on screen. Default = .preferred
-        public var location: Location = .preferred {
+        public var location: BarLocation = .preferred {
             didSet {
                 guard location != oldValue else {
                     return
@@ -37,7 +37,7 @@ public extension TabmanBar {
             }
         }
         /// The actual location of the bar on screen (including preferred location).
-        internal var actualLocation: Location {
+        internal var actualLocation: BarLocation {
             if location == .preferred {
                 return style.preferredLocation
             }
