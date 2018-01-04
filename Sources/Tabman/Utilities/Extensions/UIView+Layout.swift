@@ -10,9 +10,20 @@ import UIKit
 
 internal extension UIView {
     
-    internal func removeAllSubviews() {
+    func removeAllSubviews() {
         for subview in self.subviews {
             subview.removeFromSuperview()
         }
+    }
+    
+    @available (iOS 11, *)
+    func pinToSafeArea(layoutGuide: UILayoutGuide) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor),
+            self.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
+            self.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor)
+            ])
     }
 }
