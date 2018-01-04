@@ -39,5 +39,5 @@ internal protocol TabmanBarConfigHandler: class {
     ///   - appearance: The new appearance config.
     func config(_ config: TabmanBar.Config, didUpdate appearance: TabmanBar.Appearance)
     
-    func config(_ config: TabmanBar.Config, didUpdate behaviors: [TabmanBar.Behavior]?)
+    func config(_ config: TabmanBar.Config, didUpdate behaviors: [BarBehavior]?)
 }

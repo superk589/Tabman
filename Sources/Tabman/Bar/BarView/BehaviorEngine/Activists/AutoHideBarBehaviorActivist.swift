@@ -12,7 +12,7 @@ class AutoHideBarBehaviorActivist: BarBehaviorActivist {
     
     // MARK: Properties
     
-    private var autoHideBehavior: TabmanBar.Behavior.AutoHiding? {
+    private var autoHideBehavior: BarBehavior.AutoHiding? {
         if case .autoHide(let behavior) = self.behavior {
             return behavior
         }

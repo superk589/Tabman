@@ -8,26 +8,23 @@
 
 import Foundation
 
-public extension TabmanBar {
+public enum BarBehavior {
     
-    public enum Behavior {
-        
-        /// Autohiding the bar
-        ///
-        /// - never: always visible
-        /// - withOneItem: hidden when only a single item is in the bar
-        /// - always: always hidden
-        public enum AutoHiding {
-            case never
-            case withOneItem
-            case always
-        }
-        
-        case autoHide(AutoHiding)
+    /// Autohiding the bar
+    ///
+    /// - never: always visible
+    /// - withOneItem: hidden when only a single item is in the bar
+    /// - always: always hidden
+    public enum AutoHiding {
+        case never
+        case withOneItem
+        case always
     }
+    
+    case autoHide(AutoHiding)
 }
 
-internal extension TabmanBar.Behavior {
+internal extension BarBehavior {
     
     var activistType: BarBehaviorActivist.Type? {
         switch self {

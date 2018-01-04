@@ -19,17 +19,17 @@ internal class BarBehaviorActivist {
     
     // MARK: Properties
     
-    let behavior: TabmanBar.Behavior
+    let behavior: BarBehavior
     let activator: Activator
-    let otherBehaviors: [TabmanBar.Behavior]
+    let otherBehaviors: [BarBehavior]
     private(set) weak var bar: TabmanBar?
     
     // MARK: Init
     
-    required init(for behavior: TabmanBar.Behavior,
+    required init(for behavior: BarBehavior,
                   activator: Activator,
                   bar: TabmanBar?,
-                  otherBehaviors: [TabmanBar.Behavior]) {
+                  otherBehaviors: [BarBehavior]) {
         self.behavior = behavior
         self.activator = activator
         self.bar = bar

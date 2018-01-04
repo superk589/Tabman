@@ -14,7 +14,7 @@ internal class BarBehaviorEngine {
     
     private weak var bar: TabmanBar?
     
-    var activeBehaviors: [TabmanBar.Behavior]? {
+    var activeBehaviors: [BarBehavior]? {
         didSet {
             loadActivists(for: activeBehaviors ?? [])
         }
@@ -29,7 +29,7 @@ internal class BarBehaviorEngine {
     
     // MARK: Behaviors
     
-    private func loadActivists(for behaviors: [TabmanBar.Behavior]) {
+    private func loadActivists(for behaviors: [BarBehavior]) {
         activists.removeAll()
         
         for (index, behavior) in behaviors.enumerated() {

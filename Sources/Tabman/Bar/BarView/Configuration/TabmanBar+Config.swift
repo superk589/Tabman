@@ -68,7 +68,7 @@ public extension TabmanBar {
         public internal(set) var requiredInsets: BarInsets = .zero
         
         /// Collection of behaviors that are active on the bar.
-        public var behaviors: [Behavior]? {
+        public var behaviors: [BarBehavior]? {
             didSet {
                 handler?.config(self, didUpdate: behaviors)
             }

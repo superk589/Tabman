@@ -301,7 +301,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
         setNeedsChildAutoInsetUpdate()
     }
     
-    func config(_ config: TabmanBar.Config, didUpdate behaviors: [TabmanBar.Behavior]?) {
+    func config(_ config: TabmanBar.Config, didUpdate behaviors: [BarBehavior]?) {
         activeBarView?.behaviorEngine.activeBehaviors = behaviors
         setNeedsChildAutoInsetUpdate()
     }
