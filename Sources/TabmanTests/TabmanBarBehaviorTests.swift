@@ -14,7 +14,7 @@ class TabmanBarBehaviorTests: TabmanViewControllerTests {
 
     func testBehaviorEngineUpdates() {
         let config = tabmanViewController.bar
-        let bar = tabmanViewController.activeTabmanBar
+        let bar = tabmanViewController.activeBarView
         
         let initialBehaviors = bar?.behaviorEngine.activeBehaviors ?? []
         

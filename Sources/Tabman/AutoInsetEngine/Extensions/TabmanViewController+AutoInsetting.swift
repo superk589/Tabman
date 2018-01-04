@@ -50,11 +50,11 @@ private extension TabmanViewController {
         guard self.embeddingContainer == nil && self.attachedBarView == nil else {
             return .zero
         }
-        guard self.activeTabmanBar?.isHidden != true else {
+        guard self.activeBarView?.isHidden != true else {
             return .zero
         }
         
-        let frame = self.activeTabmanBar?.frame ?? .zero
+        let frame = self.activeBarView?.frame ?? .zero
         var insets = UIEdgeInsets.zero
         
         var location = self.bar.location

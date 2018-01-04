@@ -22,9 +22,9 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     internal var embeddingContainer: UIView?
     
     /// Returns the active bar, prefers attachedTabmanBar if available.
-    internal var activeTabmanBar: TabmanBar? {
-        if let attachedTabmanBar = self.attachedBarView {
-            return attachedTabmanBar
+    internal var activeBarView: TabmanBar? {
+        if let attachedBarView = self.attachedBarView {
+            return attachedBarView
         }
         return barView
     }
@@ -70,7 +70,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         
         let appearance = bar.appearance ?? .defaultAppearance
         let isBarExternal = embeddingContainer != nil || attachedBarView != nil
-        activeTabmanBar?.updateBackgroundEdgesForSystemAreasIfNeeded(for: bar.actualLocation,
+        activeBarView?.updateBackgroundEdgesForSystemAreasIfNeeded(for: bar.actualLocation,
                                                                      in: self,
                                                                      appearance: appearance,
                                                                      canExtend: !isBarExternal)
@@ -81,7 +81,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         let bounds = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
 
         coordinator.animate(alongsideTransition: { (_) in
-            self.activeTabmanBar?.updateForCurrentPosition(bounds: bounds)
+            self.activeBarView?.updateForCurrentPosition(bounds: bounds)
         }, completion: nil)
     }
     
@@ -99,8 +99,8 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         if animated {
             isScrollingAnimated = true
             UIView.animate(withDuration: 0.3, animations: {
-                self.activeTabmanBar?.updatePosition(CGFloat(index), direction: direction)
-                self.activeTabmanBar?.layoutIfNeeded()
+                self.activeBarView?.updatePosition(CGFloat(index), direction: direction)
+                self.activeBarView?.layoutIfNeeded()
             })
         }
     }
@@ -141,14 +141,14 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
                            direction: PageboyViewController.NavigationDirection) {
         
         let viewControllersCount = self.pageCount ?? 0
-        let barItemsCount = self.activeTabmanBar?.items?.count ?? 0
+        let barItemsCount = self.activeBarView?.items?.count ?? 0
         let itemCountsAreEqual = viewControllersCount == barItemsCount
         
         if position >= CGFloat(barItemsCount - 1) && !itemCountsAreEqual {
             return
         }
         
-        self.activeTabmanBar?.updatePosition(position, direction: direction)
+        self.activeBarView?.updatePosition(position, direction: direction)
     }
     
     /// Reload the bar with the currently active position.
@@ -291,16 +291,16 @@ extension TabmanViewController: TabmanBarConfigHandler {
     }
     
     func config(_ config: TabmanBar.Config, didUpdate appearance: TabmanBar.Appearance) {
-        self.activeTabmanBar?.appearance = appearance
+        self.activeBarView?.appearance = appearance
     }
     
     func config(_ config: TabmanBar.Config, didUpdate items: [BarItem]?) {
-        activeTabmanBar?.reloadData()
+        activeBarView?.reloadData()
         setNeedsChildAutoInsetUpdate()
     }
     
     func config(_ config: TabmanBar.Config, didUpdate behaviors: [TabmanBar.Behavior]?) {
-        activeTabmanBar?.behaviorEngine.activeBehaviors = behaviors
+        activeBarView?.behaviorEngine.activeBehaviors = behaviors
         setNeedsChildAutoInsetUpdate()
     }
 }
