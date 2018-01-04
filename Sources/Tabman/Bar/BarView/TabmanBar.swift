@@ -224,7 +224,12 @@ open class TabmanBar: UIView, TabmanBarLifecycle {
     /// Reload and reconstruct the contents of the bar.
     public func reloadData() {
         self.items = self.dataSource?.items(for: self)
-        self.clearAndConstructBar()
+        clearAndConstruct(then: {
+            
+            self.behaviorEngine.update(activation: .onBarChange)
+            self.updateCore(forAppearance: self.appearance)
+            self.updateForCurrentPosition()
+        })
     }
     
     // MARK: Updating

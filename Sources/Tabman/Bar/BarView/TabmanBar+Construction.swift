@@ -14,10 +14,10 @@ import Pageboy
 extension TabmanBar {
 
     /// Reconstruct the bar for a new style or data set.
-    internal func clearAndConstructBar() {
+    internal func clearAndConstruct(then completion: () -> Void) {
         self.indicatorWidth?.isActive = false
         self.indicatorLeftMargin?.isActive = false
-        self.clearBar()
+        self.clear()
         
         // no items yet
         guard let items = self.items else {
@@ -29,13 +29,11 @@ extension TabmanBar {
             add(indicator: indicator, to: contentView)
         }
         
-        behaviorEngine.update(activation: .onBarChange)
-        self.updateCore(forAppearance: self.appearance)
-        self.updateForCurrentPosition()
+        completion()
     }
     
     /// Remove all components and subviews from the bar.
-    internal func clearBar() {
+    private func clear() {
         self.contentView.removeAllSubviews()
     }
     
