@@ -59,7 +59,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         
         // add bar to view
         self.reloadBar(with: self.bar.style)
-        self.updateBar(with: self.bar.location)
+        self.moveBar(to: self.bar.location)
     }
     
     open override func viewDidLayoutSubviews() {
@@ -201,7 +201,7 @@ internal extension TabmanViewController {
     /// Update the bar with a new screen location.
     ///
     /// - Parameter location: The new location.
-    func updateBar(with location: TabmanBar.Location) {
+    func moveBar(to location: TabmanBar.Location) {
         guard self.embeddingContainer == nil else {
             self.embedBar(in: self.embeddingContainer!)
             return
@@ -281,7 +281,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
         
         self.clearUpBar(&self.barView)
         self.reloadBar(with: style)
-        self.updateBar(with: config.location)
+        self.moveBar(to: config.location)
     }
     
     func config(_ config: TabmanBar.Config, didUpdate location: TabmanBar.Location) {
@@ -289,7 +289,7 @@ extension TabmanViewController: TabmanBarConfigHandler {
             return
         }
 
-        self.updateBar(with: location)
+        self.moveBar(to: location)
     }
     
     func config(_ config: TabmanBar.Config, didUpdate appearance: TabmanBar.Appearance) {
