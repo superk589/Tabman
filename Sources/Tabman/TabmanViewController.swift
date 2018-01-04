@@ -66,7 +66,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
         super.viewDidLayoutSubviews()
         
         setNeedsChildAutoInsetUpdate()
-        reloadBarWithCurrentPosition()
+        updateBarWithCurrentPosition()
         
         let appearance = bar.appearance ?? .defaultAppearance
         let isBarExternal = embeddingContainer != nil || attachedBarView != nil
@@ -129,8 +129,10 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
                                     currentPageIndex: PageboyViewController.PageIndex) {
         setNeedsChildAutoInsetUpdate(for: currentViewController)
     }
-    
-    // MARK: Positional Updates
+}
+
+// MARK: - Bar positional updates
+private extension TabmanViewController {
     
     /// Update the bar with a new position.
     ///
@@ -153,7 +155,7 @@ open class TabmanViewController: PageboyViewController, PageboyViewControllerDel
     
     /// Reload the bar with the currently active position.
     /// Called after any layout changes.
-    private func reloadBarWithCurrentPosition() {
+    private func updateBarWithCurrentPosition() {
         guard let currentPosition = self.currentPosition, !isScrollingAnimated else {
             return
         }
