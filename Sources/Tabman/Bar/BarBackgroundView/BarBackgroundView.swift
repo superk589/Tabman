@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PureLayout
 
 /// View that displays background styles for a TabmanBar.
 public class BarBackgroundView: UIView {
@@ -50,7 +49,7 @@ public class BarBackgroundView: UIView {
     
     private func configure() {
         self.addSubview(self.backgroundContainer)
-        self.backgroundContainer.autoPinEdgesToSuperviewEdges()
+        self.backgroundContainer.pinToSuperviewEdges()
         
         self.updateBackground(for: style)
     }
@@ -67,13 +66,13 @@ public class BarBackgroundView: UIView {
         case .blur(let style):
             let blurView = UIVisualEffectView(effect: UIBlurEffect(style: style))
             self.backgroundContainer.addSubview(blurView)
-            blurView.autoPinEdgesToSuperviewEdges()
+            blurView.pinToSuperviewEdges()
             
         case .solid(let color):
             let colorView = UIView()
             colorView.backgroundColor = color
             self.backgroundContainer.addSubview(colorView)
-            colorView.autoPinEdgesToSuperviewEdges()
+            colorView.pinToSuperviewEdges()
             
         default:()
         }

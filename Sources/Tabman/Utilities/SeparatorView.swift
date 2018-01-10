@@ -65,18 +65,8 @@ internal class SeparatorView: UIView {
     func addAsSubview(to parent: UIView) {
         
         parent.addSubview(self)
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        let bottomPin = bottomAnchor.constraint(equalTo: parent.bottomAnchor)
-        let leadingPin = leadingAnchor.constraint(equalTo: parent.leadingAnchor)
-        let trailingPin = trailingAnchor.constraint(equalTo: parent.trailingAnchor)
-        
-        NSLayoutConstraint.activate([
-            bottomPin, leadingPin, trailingPin
-            ])
-        
-        self.leftPinConstraint = leadingPin
-        self.rightPinConstraint = trailingPin
+        pinToSuperviewEdge(.bottom)
+        leftPinConstraint = pinToSuperviewEdge(.leading)
+        rightPinConstraint = pinToSuperviewEdge(.right)
     }
 }

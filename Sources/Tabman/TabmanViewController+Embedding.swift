@@ -27,7 +27,7 @@ public extension TabmanViewController {
         
         bar.removeFromSuperview()
         view.addSubview(bar)
-        bar.autoPinEdgesToSuperviewEdges()
+        bar.pinToSuperviewEdges()
         setNeedsChildAutoInsetUpdate()
         
         view.layoutIfNeeded()

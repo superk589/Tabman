@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PureLayout
 
 internal class DotPageIndicator: BarPageIndicator {
     
@@ -39,10 +38,10 @@ internal class DotPageIndicator: BarPageIndicator {
     public override func construct() {
         
         self.addSubview(dotView)
-        dotView.autoSetDimension(.height, toSize: self.intrinsicContentSize.height)
-        dotView.autoSetDimension(.width, toSize: self.intrinsicContentSize.height)
-        dotView.autoAlignAxis(toSuperviewAxis: .vertical)
-        dotView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 2.0)
+        dotView.set(.height, to: intrinsicContentSize.height)
+        dotView.set(.width, to: intrinsicContentSize.height)
+        dotView.alignToSuperviewAxis(.vertical)
+        dotView.pinToSuperviewEdge(.bottom, inset: 2.0)
         dotView.backgroundColor = self.tintColor
     }
     
