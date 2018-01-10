@@ -90,6 +90,6 @@ open class BarPageIndicator: UIView, BarPageIndicatorLifecycle {
     ///
     /// - Returns: The item transition type.
     internal func itemTransitionType() -> TabmanItemTransition.Type? {
-        return nil
+        return TabmanItemColorCrossfadeTransition.self
     }
 }
