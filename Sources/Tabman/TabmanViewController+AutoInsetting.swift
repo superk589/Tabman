@@ -5,7 +5,6 @@
 //  Created by Merrick Sapsford on 22/11/2017.
 //  Copyright © 2017 UI At Six. All rights reserved.
 //
-
 import UIKit
 
 internal extension TabmanViewController {
@@ -21,7 +20,7 @@ internal extension TabmanViewController {
         guard let childViewController = childViewController else {
             return
         }
-        autoInsetEngine.inset(childViewController, requiredInsets: bar.requiredInsets)
+        autoInsetter.inset(childViewController, requiredInsetSpec: bar.requiredInsets)
     }
 }
 
@@ -47,14 +46,14 @@ private extension TabmanViewController {
     ///
     /// - Returns: The required bar insets
     private func actualBarInsets() -> UIEdgeInsets {
-        guard self.embeddingContainer == nil && self.attachedBarView == nil else {
+        guard embeddingContainer == nil && attachedBarView == nil else {
             return .zero
         }
-        guard self.activeBarView?.isHidden != true else {
+        guard activeBarView?.isHidden != true else {
             return .zero
         }
         
-        let frame = self.activeBarView?.frame ?? .zero
+        let frame = activeBarView?.frame ?? .zero
         var insets = UIEdgeInsets.zero
         
         var location = self.bar.location

@@ -6,7 +6,7 @@
 //  Copyright © 2018 UI At Six. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// An item to display in a bar.
 public struct BarItem {

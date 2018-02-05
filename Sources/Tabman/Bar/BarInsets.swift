@@ -6,7 +6,8 @@
 //  Copyright © 2017 Merrick Sapsford. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import AutoInsetter
 
 /// Collection of inset values required to inset child content below bar.
 public struct BarInsets {
@@ -48,4 +49,15 @@ public struct BarInsets {
         return BarInsets()
     }
     
+}
+
+extension BarInsets: AutoInsetSpec {
+    
+    public var additionalRequiredInsets: UIEdgeInsets {
+        return self.barInsets
+    }
+    
+    public var allRequiredInsets: UIEdgeInsets {
+        return self.all
+    }
 }
