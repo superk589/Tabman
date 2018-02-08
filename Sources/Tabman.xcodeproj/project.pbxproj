@@ -278,18 +278,18 @@
 		463DEB2C2007648700709671 /* BarView */ = {
 			isa = PBXGroup;
 			children = (
-				463DEB2D2007648700709671 /* Configuration */,
+				463DEB4D2007648700709671 /* TabmanBar.swift */,
 				463DEB302007648700709671 /* TabmanBar+Indicator.swift */,
 				463DEB312007648700709671 /* TabmanBar+Styles.swift */,
 				463DEB322007648700709671 /* TabmanBar+Construction.swift */,
+				463DEB3F2007648700709671 /* TabmanBar+Appearance.swift */,
+				463DEB402007648700709671 /* TabmanBar+Protocols.swift */,
+				463DEB4C2007648700709671 /* TabmanBar+Layout.swift */,
+				463DEB2D2007648700709671 /* Configuration */,
 				463DEB332007648700709671 /* Utilities */,
 				463DEB352007648700709671 /* Styles */,
 				463DEB3D2007648700709671 /* Components */,
-				463DEB3F2007648700709671 /* TabmanBar+Appearance.swift */,
-				463DEB402007648700709671 /* TabmanBar+Protocols.swift */,
 				463DEB412007648700709671 /* Transitioning */,
-				463DEB4C2007648700709671 /* TabmanBar+Layout.swift */,
-				463DEB4D2007648700709671 /* TabmanBar.swift */,
 			);
 			path = BarView;
 			sourceTree = "<group>";
