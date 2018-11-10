@@ -51,15 +51,15 @@ internal extension TabmanBar {
         let yConstraints: [NSLayoutConstraint]
         if #available(iOS 11, *) {
             yConstraints = NSLayoutConstraint.constraints(withVisualFormat: String(format: "V:[view]-%i-[bottomLayoutGuide]", -margins.bottom),
-                                                          options: NSLayoutFormatOptions(),
+                                                          options: NSLayoutConstraint.FormatOptions(),
                                                           metrics: nil, views: views)
         } else if viewController.tabBarDoesNotExist() {
             yConstraints = NSLayoutConstraint.constraints(withVisualFormat: String(format: "V:[view]-%i-|", -margins.bottom),
-                                                          options: NSLayoutFormatOptions(),
+                                                          options: NSLayoutConstraint.FormatOptions(),
                                                           metrics: nil, views: views)
         } else {
             yConstraints = NSLayoutConstraint.constraints(withVisualFormat: String(format: "V:[view]-%i-[bottomLayoutGuide]", -margins.bottom),
-                                                          options: NSLayoutFormatOptions(),
+                                                          options: NSLayoutConstraint.FormatOptions(),
                                                           metrics: nil, views: views)
         }
         constraints.append(contentsOf: xConstraints)
