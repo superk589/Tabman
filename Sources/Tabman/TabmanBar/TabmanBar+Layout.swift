@@ -10,30 +10,30 @@ import UIKit
 
 // MARK: - Bar location management
 internal extension TabmanBar {
-    
+
     @discardableResult func barAutoPinToTop(topLayoutGuide: UILayoutSupport) -> [NSLayoutConstraint]? {
         guard self.superview != nil else {
             return nil
         }
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         var constraints = [NSLayoutConstraint]()
-        
+
         let margins = self.layoutMargins
         let views: [String: Any] = ["view": self, "topLayoutGuide": topLayoutGuide]
         let xConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
-                                                          options: NSLayoutFormatOptions(),
+                                                          options: NSLayoutConstraint.FormatOptions(),
                                                           metrics: nil, views: views)
         let yConstraints = NSLayoutConstraint.constraints(withVisualFormat: String(format: "V:[topLayoutGuide]-%i-[view]", -margins.top),
-                                                          options: NSLayoutFormatOptions(),
+                                                          options: NSLayoutConstraint.FormatOptions(),
                                                           metrics: nil, views: views)
         constraints.append(contentsOf: xConstraints)
         constraints.append(contentsOf: yConstraints)
-        
+
         self.superview?.addConstraints(constraints)
         return constraints
     }
-    
+
     @discardableResult func barAutoPinToBottom(bottomLayoutGuide: UILayoutSupport, viewController: UIViewController) -> [NSLayoutConstraint]? {
         guard self.superview != nil else {
             return nil
@@ -41,13 +41,13 @@ internal extension TabmanBar {
         self.translatesAutoresizingMaskIntoConstraints = false
 
         var constraints = [NSLayoutConstraint]()
-        
+
         let margins = self.layoutMargins
         let views: [String: Any] = ["view": self, "bottomLayoutGuide": bottomLayoutGuide]
         let xConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
-                                                          options: NSLayoutFormatOptions(),
+                                                          options: NSLayoutConstraint.FormatOptions(),
                                                           metrics: nil, views: views)
-        
+
         let yConstraints: [NSLayoutConstraint]
         if #available(iOS 11, *) {
             yConstraints = NSLayoutConstraint.constraints(withVisualFormat: String(format: "V:[view]-%i-[bottomLayoutGuide]", -margins.bottom),
@@ -64,7 +64,7 @@ internal extension TabmanBar {
         }
         constraints.append(contentsOf: xConstraints)
         constraints.append(contentsOf: yConstraints)
-        
+
         self.superview?.addConstraints(constraints)
         return constraints
     }
@@ -87,7 +87,7 @@ extension UIViewController {
 
 // MARK: - Background View layout
 internal extension TabmanBar {
-    
+
     /// Extend the background view for system areas if applicable.
     ///
     /// - Parameters:
@@ -100,12 +100,12 @@ internal extension TabmanBar {
                                                      appearance: TabmanBar.Appearance,
                                                      canExtend: Bool) {
         let safeAreaInsets = generateSafeAreaInsetsIfNeeded(from: viewController)
-        
+
         updateBackgroundEdgesForStatusBarIfNeeded(location: location,
                                                   safeAreaInsets: safeAreaInsets,
                                                   appearance: appearance,
                                                   canExtend: canExtend)
-        
+
         if #available(iOS 11, *) {
             updateBackgroundEdgesForBottomSafeAreaIfNeeded(location: location,
                                                            viewController: viewController,
@@ -114,7 +114,7 @@ internal extension TabmanBar {
                                                            canExtend: canExtend)
         }
     }
-    
+
     /// Generate a set of insets for safe areas. (Uses layout guides on <iOS 11)
     ///
     /// - Parameter viewController: The view controller to generate insets for.
@@ -123,13 +123,13 @@ internal extension TabmanBar {
         if #available(iOS 11, *) {
             return viewController.view.safeAreaInsets
         }
-        
+
         var safeAreaInsets = UIEdgeInsets.zero
         safeAreaInsets.top = viewController.topLayoutGuide.length
         safeAreaInsets.bottom = viewController.bottomLayoutGuide.length
         return safeAreaInsets
     }
-    
+
     /// Extends the bar background view underneath status bar if applicable.
     ///
     /// - Parameters:
@@ -150,13 +150,13 @@ internal extension TabmanBar {
             topPinConstraint.constant = 0.0
             return
         }
-        
+
         let statusBarHeight = UIApplication.safeShared?.statusBarFrame.height ?? 0.0
         if safeAreaInsets.top == statusBarHeight {
             topPinConstraint.constant = -statusBarHeight
         }
     }
-    
+
     @available (iOS 11, *)
     /// Extends the bar background view onto bottom safe area if applicable (for iPhone X).
     ///
@@ -173,7 +173,7 @@ internal extension TabmanBar {
                                                         canExtend: Bool) {
         let bottomPinConstraint = self.backgroundView.constraints[2]
         let extendBackgroundEdgeInsets = appearance.layout.extendBackgroundEdgeInsets ?? false
-        
+
         // ensure location is bottom, extending is enabled
         // and view controller is not in a tab bar controller.
         guard location == .bottom &&
@@ -183,7 +183,7 @@ internal extension TabmanBar {
             bottomPinConstraint.constant = 0.0
             return
         }
-        
+
         let bottomSafeAreaInset = safeAreaInsets.bottom
         bottomPinConstraint.constant = bottomSafeAreaInset
     }

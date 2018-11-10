@@ -131,20 +131,49 @@ internal class TabmanScrollingButtonBar: TabmanButtonBar {
         self.indicatorWidth = indicator.set(.width, to: 0.0)
     }
 
-    override public func update(forAppearance appearance: Appearance,
-                                defaultAppearance: Appearance) {
-        super.update(forAppearance: appearance,
-                     defaultAppearance: defaultAppearance)
+    override func updateForCurrentPosition(bounds: CGRect? = nil) {
+        super.updateForCurrentPosition(bounds: bounds)
+
+        // reset minimum item width constraints
+        let minimumItemWidth = appearance.layout.minimumItemWidth ?? Appearance.defaultAppearance.layout.minimumItemWidth!
+        self.itemMinimumWidthConstraints?.forEach({ $0.constant = minimumItemWidth })
+        layoutIfNeeded()
+
+        let itemDistribution = appearance.layout.itemDistribution ?? Appearance.defaultAppearance.layout.itemDistribution!
+
+        // prevent visual glitch when scrolling between items when normal font and selected font differ
+        if self.textFont != self.selectedTextFont, let items = items, let itemMinimumWidthConstraints = itemMinimumWidthConstraints {
+            for (item, minWidthConstraint) in zip(items, itemMinimumWidthConstraints) {
+                guard let title = item.title else { continue }
+                let constrainedHeight = self.contentView.bounds.height
+                let normalWidth = title.width(withConstrainedHeight: constrainedHeight, font: self.textFont)
+                let selectedWidth = title.width(withConstrainedHeight: constrainedHeight, font: self.selectedTextFont)
+                minWidthConstraint.constant = max(normalWidth, selectedWidth, minimumItemWidth)
+            }
+            layoutIfNeeded()
+        }
+
+        // in fill item distribution add additional padding to items if content doesn't use the full width of the bar
+        if itemDistribution == .fill, scrollView.contentView.bounds.width < scrollView.bounds.width, let itemCount = items?.count, let itemMinimumWidthConstraints = itemMinimumWidthConstraints {
+            let extraSpace = scrollView.bounds.width - scrollView.contentView.bounds.width
+            let widthPadding = extraSpace / CGFloat(itemCount)
+            for (button, minWidthConstraint) in zip(buttons, itemMinimumWidthConstraints) {
+                minWidthConstraint.constant = button.bounds.width + widthPadding
+            }
+            layoutIfNeeded()
+        }
+
+        indicator?.invalidateIntrinsicContentSize()
+        layoutIfNeeded()
+    }
+
+    override public func update(forAppearance appearance: Appearance, defaultAppearance: Appearance) {
+        super.update(forAppearance: appearance, defaultAppearance: defaultAppearance)
 
         let isScrollEnabled = appearance.interaction.isScrollEnabled
         self.isScrollEnabled = isScrollEnabled ?? defaultAppearance.interaction.isScrollEnabled!
 
-        let minimumItemWidth = appearance.layout.minimumItemWidth ?? defaultAppearance.layout.minimumItemWidth!
-        self.itemMinimumWidthConstraints?.forEach({ $0.constant = minimumItemWidth })
-        layoutIfNeeded()
-
         self.updateEdgeFade(visible: appearance.style.showEdgeFade ?? false)
-
 
         // dont allow for centered item distribution if indicator is progressive
         let isProgressive = appearance.indicator.isProgressive ?? defaultAppearance.indicator.isProgressive!
@@ -152,18 +181,6 @@ internal class TabmanScrollingButtonBar: TabmanButtonBar {
         if itemDistribution == .centered && isProgressive {
             itemDistribution = .leftAligned
             print("TabmanScrollingButtonBar Error - 'centered' item distribution is not supported when using a progressive indicator.")
-        }
-
-        // in fill item distribution add additional padding to items if content doesn't use the full width of the bar
-        if itemDistribution == .fill, scrollView.contentView.bounds.width < scrollView.bounds.width, let itemCount = items?.count {
-            let extraSpace = scrollView.bounds.width - scrollView.contentView.bounds.width
-            let widthPadding = extraSpace / CGFloat(itemCount)
-            for (index, button) in buttons.enumerated() {
-                if let minWidthConstraint = itemMinimumWidthConstraints?[index] {
-                    minWidthConstraint.constant = button.bounds.width + widthPadding
-                }
-            }
-            layoutIfNeeded()
         }
 
         update(for: itemDistribution)
